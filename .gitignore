@@ -1,0 +1,25 @@
+# Obsidian
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.trash/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp files
+*.tmp
+*.temp
+*.swp
+*~
+
+# Large files
+*.mp4
+*.mov
+*.avi
+*.zip
+*.tar.gz
+
+# Keep community plugins but ignore their data
+.obsidian/plugins/*/data.json
