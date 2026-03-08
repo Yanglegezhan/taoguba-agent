@@ -1059,6 +1059,8 @@ def main():
     custom_parser.add_argument("--start", required=True, help="开始时间 (HH:MM 或 YYYY-MM-DD HH:MM)")
     custom_parser.add_argument("--end", required=True, help="结束时间 (HH:MM 或 YYYY-MM-DD HH:MM)")
     custom_parser.add_argument("--blogger", help="指定博主名称（只获取该博主）")
+    custom_parser.add_argument("--push", action="store_true", help="推送到飞书")
+    custom_parser.add_argument("--llm", action="store_true", help="使用LLM智能提取干货")
     custom_parser.set_defaults(func=cmd_custom)
 
     # batch 命令 - 批量获取2小时分段
@@ -1067,6 +1069,8 @@ def main():
     batch_parser.add_argument("--blogger", help="指定博主名称")
     batch_parser.add_argument("--start-hour", type=int, default=9, help="开始小时 (默认9)")
     batch_parser.add_argument("--end-hour", type=int, default=21, help="结束小时 (默认21)")
+    batch_parser.add_argument("--push", action="store_true", help="推送到飞书")
+    batch_parser.add_argument("--llm", action="store_true", help="使用LLM智能提取干货")
     batch_parser.set_defaults(func=cmd_batch)
 
     args = parser.parse_args()
