@@ -1,25 +1,83 @@
-# Obsidian
-.obsidian/workspace.json
-.obsidian/workspace-mobile.json
-.obsidian/cache
-.trash/
+# Ralph generated files (inside .ralph/ subfolder)
+.ralph/.call_count
+.ralph/.last_reset
+.ralph/.exit_signals
+.ralph/status.json
+.ralph/.ralph_session
+.ralph/.ralph_session_history
+.ralph/.claude_session_id
+.ralph/.response_analysis
+.ralph/.circuit_breaker_state
+.ralph/.circuit_breaker_history
 
-# OS
+# Ralph logs and generated docs
+.ralph/logs/*
+!.ralph/logs/.gitkeep
+.ralph/docs/generated/*
+!.ralph/docs/generated/.gitkeep
+
+# General logs
+*.log
+
+# OS files
 .DS_Store
 Thumbs.db
 
-# Temp files
+# Temporary files
 *.tmp
-*.temp
+.temp/
+
+# Node modules (if using Node.js projects)
+node_modules/
+
+# Python cache (if using Python projects)
+__pycache__/
+*.pyc
+
+# Rust build (if using Rust projects)
+target/
+
+# IDE files
+.vscode/
+.idea/
 *.swp
-*~
+*.swo
 
-# Large files
-*.mp4
-*.mov
-*.avi
-*.zip
-*.tar.gz
+# Ralph backup directories (created by migration)
+.ralph_backup_*
 
-# Keep community plugins but ignore their data
-.obsidian/plugins/*/data.json
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Data directories
+data/
+log/
+logs/
+temp_data/
+output/
+
+# Claude
+.claude/
+.cache/
+
+# Other tools
+.cursor/
+.learnings/
+.minimax/
+.playwright-mcp/
+.ralph/
+.clude.json
+.ralphrc
+
+# Obsidian
+.obsidian/
+
+# Virtual Environment
+.venv/
+venv/
+
+# System files
+nul
+
