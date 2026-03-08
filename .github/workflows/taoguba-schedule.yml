@@ -2,24 +2,51 @@ name: 淘股吧干货获取
 
 on:
   schedule:
-    # 上午收盘 11:30 (UTC 03:30)
-    - cron: '30 3 * * 1-5'
-    # 下午收盘 15:00 (UTC 07:00)
+    # 工作日调度 (北京时间 UTC+8)
+    # 09:00 获取 00:00-09:00 (UTC 01:00)
+    - cron: '0 1 * * 1-5'
+    # 15:00 获取 09:00-15:00 (UTC 07:00)
     - cron: '0 7 * * 1-5'
-    # 日终总结 20:00 (UTC 12:00)
+    # 16:00 获取 15:00-16:00 (UTC 08:00)
+    - cron: '0 8 * * 1-5'
+    # 18:00 获取 16:00-18:00 (UTC 10:00)
+    - cron: '0 10 * * 1-5'
+    # 20:00 获取 18:00-20:00 (UTC 12:00)
     - cron: '0 12 * * 1-5'
+    # 22:00 获取 20:00-22:00 (UTC 14:00)
+    - cron: '0 14 * * 1-5'
+
+    # 周末调度
+    # 09:00 获取 00:00-09:00 (UTC 01:00, 周六周日)
+    - cron: '0 1 * * 0,6'
+    # 11:00 获取 09:00-11:00 (UTC 03:00)
+    - cron: '0 3 * * 0,6'
+    # 13:00 获取 11:00-13:00 (UTC 05:00)
+    - cron: '0 5 * * 0,6'
+    # 15:00 获取 13:00-15:00 (UTC 07:00)
+    - cron: '0 7 * * 0,6'
+    # 17:00 获取 15:00-17:00 (UTC 09:00)
+    - cron: '0 9 * * 0,6'
+    # 19:00 获取 17:00-19:00 (UTC 11:00)
+    - cron: '0 11 * * 0,6'
+    # 21:00 获取 19:00-21:00 (UTC 13:00)
+    - cron: '0 13 * * 0,6'
+    # 23:00 获取 21:00-23:00 (UTC 15:00)
+    - cron: '0 15 * * 0,6'
 
   # 手动触发
   workflow_dispatch:
     inputs:
-      command:
-        description: '执行命令'
-        required: true
-        default: 'now'
-        type: choice
-        options:
-          - now
-          - batch
+      start_time:
+        description: '开始时间 (HH:MM)'
+        required: false
+        default: ''
+        type: string
+      end_time:
+        description: '结束时间 (HH:MM)'
+        required: false
+        default: ''
+        type: string
       blogger:
         description: '指定博主（可选）'
         required: false
@@ -61,6 +88,114 @@ jobs:
           pip install -r requirements.txt
           playwright install chromium
 
+      - name: 计算时间范围
+        id: time-range
+        run: |
+          # 设置北京时区
+          export TZ=Asia/Shanghai
+          CURRENT_HOUR=$(date +%H)
+          CURRENT_MIN=$(date +%M)
+
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            # 手动触发，使用输入的时间
+            if [ "${{ github.event.inputs.start_time }}" != "" ] && [ "${{ github.event.inputs.end_time }}" != "" ]; then
+              START_TIME="${{ github.event.inputs.start_time }}"
+              END_TIME="${{ github.event.inputs.end_time }}"
+            else
+              # 默认获取最近2小时
+              END_TIME=$(date +%H:%M)
+              START_TIME=$(date -d "2 hours ago" +%H:%M)
+            fi
+          else
+            # 定时触发，根据当前时间计算范围
+            # 工作日
+            # 09:00 -> 00:00-09:00
+            # 15:00 -> 09:00-15:00
+            # 16:00 -> 15:00-16:00
+            # 18:00 -> 16:00-18:00
+            # 20:00 -> 18:00-20:00
+            # 22:00 -> 20:00-22:00
+
+            # 周末
+            # 09:00 -> 00:00-09:00
+            # 11:00 -> 09:00-11:00
+            # 13:00 -> 11:00-13:00
+            # 15:00 -> 13:00-15:00
+            # 17:00 -> 15:00-17:00
+            # 19:00 -> 17:00-19:00
+            # 21:00 -> 19:00-21:00
+            # 23:00 -> 21:00-23:00
+
+            case $CURRENT_HOUR in
+              09)
+                START_TIME="00:00"
+                END_TIME="09:00"
+                ;;
+              11)
+                START_TIME="09:00"
+                END_TIME="11:00"
+                ;;
+              13)
+                START_TIME="11:00"
+                END_TIME="13:00"
+                ;;
+              15)
+                # 需要判断是工作日还是周末
+                DAY_OF_WEEK=$(date +%w)
+                if [ "$DAY_OF_WEEK" = "0" ] || [ "$DAY_OF_WEEK" = "6" ]; then
+                  # 周末：13:00-15:00
+                  START_TIME="13:00"
+                  END_TIME="15:00"
+                else
+                  # 工作日：09:00-15:00
+                  START_TIME="09:00"
+                  END_TIME="15:00"
+                fi
+                ;;
+              16)
+                START_TIME="15:00"
+                END_TIME="16:00"
+                ;;
+              17)
+                START_TIME="15:00"
+                END_TIME="17:00"
+                ;;
+              18)
+                START_TIME="16:00"
+                END_TIME="18:00"
+                ;;
+              19)
+                START_TIME="17:00"
+                END_TIME="19:00"
+                ;;
+              20)
+                START_TIME="18:00"
+                END_TIME="20:00"
+                ;;
+              21)
+                START_TIME="19:00"
+                END_TIME="21:00"
+                ;;
+              22)
+                START_TIME="20:00"
+                END_TIME="22:00"
+                ;;
+              23)
+                START_TIME="21:00"
+                END_TIME="23:00"
+                ;;
+              *)
+                # 默认获取最近2小时
+                END_TIME=$(date +%H:%M)
+                START_TIME=$(date -d "2 hours ago" +%H:%M)
+                ;;
+            esac
+          fi
+
+          echo "start_time=$START_TIME" >> $GITHUB_OUTPUT
+          echo "end_time=$END_TIME" >> $GITHUB_OUTPUT
+          echo "获取时间段: $START_TIME - $END_TIME"
+
       - name: 执行淘股吧获取
         working-directory: ./2-Projects/Agents/taoguba_agent
         env:
@@ -70,32 +205,17 @@ jobs:
           MINIMAX_API_KEY: ${{ secrets.MINIMAX_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            # 手动触发
-            CMD="${{ github.event.inputs.command }}"
-            ARGS=""
+          ARGS="--llm --push"
 
-            if [ "${{ github.event.inputs.blogger }}" != "" ]; then
-              ARGS="$ARGS --blogger '${{ github.event.inputs.blogger }}'"
-            fi
-
-            if [ "${{ github.event.inputs.use_llm }}" = "true" ]; then
-              ARGS="$ARGS --llm"
-            fi
-
-            if [ "${{ github.event.inputs.push_feishu }}" = "true" ]; then
-              ARGS="$ARGS --push"
-            fi
-
-            if [ "$CMD" = "batch" ]; then
-              python main.py batch --date "$(date +%Y-%m-%d)" $ARGS
-            else
-              python main.py now $ARGS
-            fi
-          else
-            # 定时触发
-            python main.py now --push --llm
+          if [ "${{ github.event.inputs.blogger }}" != "" ]; then
+            ARGS="$ARGS --blogger '${{ github.event.inputs.blogger }}'"
           fi
+
+          START_TIME="${{ steps.time-range.outputs.start_time }}"
+          END_TIME="${{ steps.time-range.outputs.end_time }}"
+
+          echo "执行: python main.py custom --start $START_TIME --end $END_TIME $ARGS"
+          python main.py custom --start "$START_TIME" --end "$END_TIME" $ARGS
 
       - name: 上传报告
         if: always()
