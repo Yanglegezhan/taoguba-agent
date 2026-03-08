@@ -1,0 +1,106 @@
+name: 淘股吧干货获取
+
+on:
+  schedule:
+    # 上午收盘 11:30 (UTC 03:30)
+    - cron: '30 3 * * 1-5'
+    # 下午收盘 15:00 (UTC 07:00)
+    - cron: '0 7 * * 1-5'
+    # 日终总结 20:00 (UTC 12:00)
+    - cron: '0 12 * * 1-5'
+
+  # 手动触发
+  workflow_dispatch:
+    inputs:
+      command:
+        description: '执行命令'
+        required: true
+        default: 'now'
+        type: choice
+        options:
+          - now
+          - batch
+      blogger:
+        description: '指定博主（可选）'
+        required: false
+        default: ''
+        type: string
+      use_llm:
+        description: '使用LLM提取'
+        required: true
+        default: true
+        type: boolean
+      push_feishu:
+        description: '推送到飞书'
+        required: true
+        default: true
+        type: boolean
+
+jobs:
+  fetch-taoguba:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 设置 Python 环境
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: 安装 Playwright 依赖
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libnss3 libnspr4 libatk1.0-0 libatk-bridge2.0-0 libcups2 libdrm2 libxkbcommon0 libxcomposite1 libxdamage1 libxfixes3 libxrandr2 libgbm1 libasound2
+
+      - name: 安装依赖
+        working-directory: ./2-Projects/Agents/taoguba_agent
+        run: |
+          pip install -r requirements.txt
+          playwright install chromium
+
+      - name: 执行淘股吧获取
+        working-directory: ./2-Projects/Agents/taoguba_agent
+        env:
+          TAOGUBA_COOKIE: ${{ secrets.TAOGUBA_COOKIE }}
+          FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
+          GLM_API_KEY: ${{ secrets.GLM_API_KEY }}
+          MINIMAX_API_KEY: ${{ secrets.MINIMAX_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            # 手动触发
+            CMD="${{ github.event.inputs.command }}"
+            ARGS=""
+
+            if [ "${{ github.event.inputs.blogger }}" != "" ]; then
+              ARGS="$ARGS --blogger '${{ github.event.inputs.blogger }}'"
+            fi
+
+            if [ "${{ github.event.inputs.use_llm }}" = "true" ]; then
+              ARGS="$ARGS --llm"
+            fi
+
+            if [ "${{ github.event.inputs.push_feishu }}" = "true" ]; then
+              ARGS="$ARGS --push"
+            fi
+
+            if [ "$CMD" = "batch" ]; then
+              python main.py batch --date "$(date +%Y-%m-%d)" $ARGS
+            else
+              python main.py now $ARGS
+            fi
+          else
+            # 定时触发
+            python main.py now --push --llm
+          fi
+
+      - name: 上传报告
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reports-${{ github.run_id }}
+          path: ./2-Projects/Agents/taoguba_agent/report_*.md
+          retention-days: 7
