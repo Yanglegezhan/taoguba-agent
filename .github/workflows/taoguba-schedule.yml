@@ -208,8 +208,9 @@ jobs:
         run: |
           ARGS="--llm --push"
 
-          if [ "${{ github.event.inputs.blogger }}" != "" ]; then
-            ARGS="$ARGS --blogger '${{ github.event.inputs.blogger }}'"
+          BLOGGER="${{ github.event.inputs.blogger }}"
+          if [ "$BLOGGER" != "" ]; then
+            ARGS="$ARGS --blogger $BLOGGER"
           fi
 
           START_TIME="${{ steps.time-range.outputs.start_time }}"
