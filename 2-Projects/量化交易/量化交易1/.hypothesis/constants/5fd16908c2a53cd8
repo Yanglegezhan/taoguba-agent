@@ -1,0 +1,4 @@
+# file: D:\pythonProject2\量化交易1\Ashare复盘multi-agents\next_day_expectation_agent\src\data_sources\data_source_manager.py
+# hypothesis_version: 6.150.2
+
+[100, 'A50', 'NVDA', 'akshare', 'auction_data', 'data_type', 'eastmoney', 'error', 'futures_data', 'kaipanla', 'limit_up_stocks', 'market_data', 'news_headlines', 'sector_data', 'source', 'success', 'timestamp', 'us_stock_data']

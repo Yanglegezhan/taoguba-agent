@@ -1,0 +1,4 @@
+# file: D:\pythonProject2\量化交易1\Ashare复盘multi-agents\sentiment_replay_agent\src\data\cache_manager.py
+# hypothesis_version: 6.150.2
+
+['all_a_change', 'blown_limit_up_count', 'blown_limit_up_rate', 'combined_data.csv', 'consecutive_limit_up', 'date_range', 'down_count', 'index_change', 'large_pullback_count', 'limit_down_count', 'limit_up_count', 'loss_effect', 'market_cache_path', 'market_coefficient', 'market_data_count', 'max_consecutive', 'output/cache', 'sentiment_cache_path', 'sentiment_data_count', 'trading_date', 'up_count', 'utf-8-sig', '无数据']

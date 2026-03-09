@@ -1,0 +1,121 @@
+# 数据源配置模板
+# 复制此文件为 data_source_config.yaml 并填写实际配置
+
+# 数据源优先级（1=最高优先级）
+priority:
+  - kaipanla
+  - akshare
+  - eastmoney
+
+# Kaipanla API配置
+# 注意：Kaipanla是本地Python模块，不是Web API
+kaipanla:
+  enabled: true
+  module_path: "kaipanla_crawler/kaipanla_crawler.py"  # 本地文件路径
+  class_name: "KaipanlaCrawler"  # 类名
+  timeout: 1600  # 某些API需要较长超时时间（秒）
+  retry_times: 3
+  # Kaipanla不需要API密钥
+  api_key: ""
+  
+  # API方法映射（根据实际需求映射到具体方法）
+  methods:
+    # Stage1 数据采集（收盘后）
+    daily_data: "get_daily_data"  # 获取交易日数据
+    market_sentiment: "get_market_sentiment"  # 获取涨跌统计
+    market_index: "get_market_index"  # 获取大盘指数
+    limit_up_ladder: "get_limit_up_ladder"  # 获取连板梯队
+    consecutive_limit_up: "get_consecutive_limit_up"  # 获取连板梯队情况
+    sharp_withdrawal: "get_sharp_withdrawal"  # 获取大幅回撤
+    sector_ranking: "get_sector_ranking"  # 获取涨停原因板块
+    new_high_data: "get_new_high_data"  # 获取百日新高数据
+    sector_strength: "get_sector_strength"  # 获取板块强度
+    sector_strength_ndays: "get_sector_strength_ndays"  # 获取N日板块强度
+    longhubang_stock_list: "get_longhubang_stock_list"  # 获取龙虎榜
+    
+    # Stage2 隔夜数据采集（早盘前7:00-9:00）
+    plate_news: "get_plate_news"  # 获取板块新闻
+    sector_constituent_stocks: "get_sector_constituent_stocks"  # 获取板块成分股
+    
+    # Stage3 竞价监测（9:15-9:25）
+    realtime_market_mood: "get_realtime_market_mood"  # 获取实时市场情绪
+    realtime_actual_limit_up_down: "get_realtime_actual_limit_up_down"  # 获取实时实际涨跌停
+    realtime_board_stocks: "get_realtime_board_stocks"  # 获取实时指定连板股票
+    realtime_all_boards_stocks: "get_realtime_all_boards_stocks"  # 获取实时所有连板股票
+    realtime_index_trend: "get_realtime_index_trend"  # 获取实时指数趋势
+    realtime_sharp_withdrawal: "get_realtime_sharp_withdrawal"  # 获取实时大幅回撤
+    realtime_rise_fall_analysis: "get_realtime_rise_fall_analysis"  # 获取实时涨跌分析
+    sector_limit_up_ladder: "get_sector_limit_up_ladder"  # 获取板块连板梯队
+    market_limit_up_ladder: "get_market_limit_up_ladder"  # 获取全市场连板梯队
+    sector_capital_data: "get_sector_capital_data"  # 获取板块资金数据
+    sector_bidding_anomaly: "get_sector_bidding_anomaly"  # 获取板块竞价异动
+    
+    # 分时数据（支持历史和实时）
+    sector_intraday: "get_sector_intraday"  # 获取板块分时数据
+    stock_intraday: "get_stock_intraday"  # 获取个股分时数据
+    stock_big_order_intraday: "get_stock_big_order_intraday"  # 获取个股大单净额分时
+    index_intraday: "get_index_intraday"  # 获取大盘指数分时
+    sector_volume_turnover: "get_sector_volume_turnover"  # 获取板块成交量/成交额
+
+# AKShare配置
+akshare:
+  enabled: true
+  # 代理配置（AKShare需要禁用代理）
+  proxy:
+    enabled: false
+    http: ""
+    https: ""
+  timeout: 30
+  retry_times: 3
+
+# 东方财富API配置
+eastmoney:
+  enabled: true
+  base_url: "http://push2.eastmoney.com"
+  timeout: 30
+  retry_times: 3
+
+# 新闻数据源配置
+news:
+  # 证券报网站
+  securities_daily:
+    enabled: true
+    url: "http://www.zqrb.cn"
+  
+  shanghai_securities:
+    enabled: true
+    url: "http://www.cnstock.com"
+  
+  china_securities:
+    enabled: true
+    url: "http://www.cs.com.cn"
+  
+  securities_times:
+    enabled: true
+    url: "http://www.stcn.com"
+
+# 外部市场数据源
+external_markets:
+  # 美股数据
+  us_stocks:
+    enabled: true
+    source: "akshare"  # 使用AKShare获取
+  
+  # 期货数据
+  futures:
+    enabled: true
+    source: "akshare"
+  
+  # 政策公告
+  policy:
+    enabled: true
+    sources:
+      - "工信部"
+      - "发改委"
+      - "证监会"
+
+# 数据缓存配置
+cache:
+  enabled: true
+  ttl: 3600  # 缓存有效期（秒）
+  max_size: 1000  # 最大缓存条目数

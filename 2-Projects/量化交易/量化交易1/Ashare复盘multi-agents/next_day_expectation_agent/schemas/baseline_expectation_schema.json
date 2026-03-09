@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BaselineExpectation",
+  "description": "基准预期数据结构",
+  "type": "object",
+  "required": ["date", "expectations"],
+  "properties": {
+    "date": {
+      "type": "string",
+      "description": "日期，格式：YYYY-MM-DD",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "expectations": {
+      "type": "object",
+      "description": "基准预期字典（stock_code -> BaselineExpectation）",
+      "additionalProperties": {
+        "$ref": "#/definitions/BaselineExpectation"
+      }
+    }
+  },
+  "definitions": {
+    "BaselineExpectation": {
+      "type": "object",
+      "required": ["stock_code", "stock_name", "expected_open_min", "expected_open_max", "expected_amount_min", "logic", "confidence"],
+      "properties": {
+        "stock_code": {
+          "type": "string",
+          "description": "股票代码"
+        },
+        "stock_name": {
+          "type": "string",
+          "description": "股票名称"
+        },
+        "expected_open_min": {
+          "type": "number",
+          "description": "预期开盘涨幅下限（%）"
+        },
+        "expected_open_max": {
+          "type": "number",
+          "description": "预期开盘涨幅上限（%）"
+        },
+        "expected_amount_min": {
+          "type": "number",
+          "description": "预期竞价金额下限（万元）",
+          "minimum": 0
+        },
+        "logic": {
+          "type": "string",
+          "description": "计算逻辑说明"
+        },
+        "confidence": {
+          "type": "number",
+          "description": "置信度（0-1）",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    }
+  }
+}

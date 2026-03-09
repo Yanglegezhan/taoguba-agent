@@ -1,0 +1,58 @@
+# -*- coding: utf-8 -*-
+# 涨停题材暗线挖掘智能体配置文件模板
+
+# LLM配置
+llm:
+  provider: "zhipu"              # LLM提供商 (zhipu/openai/deepseek)
+  api_key: "YOUR_API_KEY"       # LLM API Key
+  model_name: "glm-4.7-flash"   # 模型名称
+  temperature: 0.7               # 温度参数
+  max_tokens: null               # null表示不限制
+  timeout: null                  # null表示不限制超时
+
+# 数据源配置
+data_source:
+  kaipanla:
+    timeout: 60                  # 开盘啦超时时间(秒)
+    max_retries: 3               # 最大重试次数
+
+  tushare:
+    api_token: "YOUR_TUSHARE_TOKEN"  # TuShare API Token
+    timeout: 30                   # TuShare超时时间(秒)
+
+  akshare:
+    timeout: 30                   # AkShare超时时间(秒)
+
+# 分析参数配置
+analysis:
+  # 统计学分析参数
+  lift_ratio_threshold: 2.0      # 提升倍数阈值(>此值视为显著)
+  min_sample_size: 3              # 最小样本量(低于此值标记为偶然因素)
+
+  # 命名分析参数
+  naming_similarity_threshold: 0.7  # 命名相似度阈值
+
+  # 技术分析参数
+  ma_periods: [5, 10, 20, 60]    # 均线周期列表
+  lookback_days: 250              # 技术指标回溯天数
+  recent_limit_up_window: 20       # 近期涨停检测窗口(交易日)
+
+  # 分类阈值
+  pb_break_threshold: 1.0         # 破净阈值
+  price_ranges: [10, 30]          # 股价区间分割点(元)
+  market_cap_ranges: [50, 100, 1000]  # 市值区间分割点(亿元)
+
+# 输出配置
+output:
+  report_dir: "output/reports"     # 报告输出目录
+  format: ["markdown", "json"]     # 输出格式
+ 生成: ["markdown", "json"]     # 输出格式
+  include_stock_details: true      # 是否包含个股详情
+
+# 日志配置
+logging:
+  level: "INFO"                   # 日志级别 (DEBUG/INFO/WARNING/ERROR)
+  file: "logs/dark_line_agent.log"  # 日志文件路径
+  max_bytes: 10485760            # 日志文件最大字节数(10MB)
+  backup_count: 5                 # 日志备份数量9量
+  console_output: true            # 是否输出到控制台

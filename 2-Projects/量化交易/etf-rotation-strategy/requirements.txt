@@ -1,0 +1,9 @@
+akshare>=1.12.0
+pandas>=2.0.0
+numpy>=1.24.0
+matplotlib>=3.7.0
+scipy>=1.10.0
+pydantic>=2.5.0
+pyyaml>=6.0.0
+tqdm>=4.66.0
+statsmodels>=0.14.0

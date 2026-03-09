@@ -1,0 +1,4 @@
+# file: D:\pythonProject2\量化交易1\Ashare复盘multi-agents\sentiment_replay_agent\src\sentiment\chart_generator.py
+# hypothesis_version: 6.150.2
+
+[0.1, 0.15, 0.5, 0.8, 0.9, 1.0, 2.0, 2.5, 150, '#0066CC', '#00AA00', '#00CC66', '#666666', '#9933FF', '#9966CC', '#CC0000', '#FF0000', '#FF0066', '#FF6600', '#FF9900', '%m-%d', '*', '-', '--', ':', 'Arial', 'A股情绪三线趋势图', 'Darwin', 'Heiti SC', 'Microsoft YaHei', 'Noto Sans CJK SC', 'P', 'PingFang SC', 'SimHei', 'SimSun', 'WenQuanYi Micro Hei', 'Windows', 'X', '^', 'axes.unicode_minus', 'black', 'bold', 'center', 'd', 'font.sans-serif', 'gray', 'loss_effect', 'market_coefficient', 'none', 'o', 'offset points', 'png', 'right', 'round,pad=0.3', 's', 'tight', 'top', 'upper left', 'v', 'white', '亏钱效应', '交易日期', '大盘系数', '情绪指标数据不能为空', '指标数值', '超短情绪']

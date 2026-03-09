@@ -1,0 +1,4 @@
+# file: D:\pythonProject2\量化交易1\Ashare复盘multi-agents\next_day_expectation_agent\src\data_sources\kaipanla_client.py
+# hypothesis_version: 6.150.2
+
+[9.9, 19.9, 693, '%Y-%m-%d', 'kaipanla_crawler', 'kaipanla_crawler.py', '涨跌幅', '连板天数']

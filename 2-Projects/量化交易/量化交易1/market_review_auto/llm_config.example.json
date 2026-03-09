@@ -1,0 +1,7 @@
+{
+  "model": "glm-4.6",
+  "length": 4000,
+  "max_tokens": 6144,
+  "data_dir": "data/review_data/20251230",
+  "out": "data/review_data/20251230/llm_recap.txt"
+}

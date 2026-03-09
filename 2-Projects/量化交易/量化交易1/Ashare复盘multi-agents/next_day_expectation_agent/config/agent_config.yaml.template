@@ -1,0 +1,210 @@
+# Agent配置模板
+# 复制此文件为 agent_config.yaml 并填写实际配置
+
+# Stage1 Agent配置
+stage1:
+  enabled: true
+  # 基因池筛选条件
+  gene_pool:
+    min_board_height: 2  # 最低连板高度
+    min_market_cap: 10  # 最小市值（亿元）
+    max_market_cap: 500  # 最大市值（亿元）
+    min_turnover_rate: 1.0  # 最小换手率（%）
+    
+  # 技术指标计算参数
+  technical:
+    ma_periods: [5, 10, 20]  # 均线周期
+    lookback_days: 60  # 回溯天数
+    chip_concentration_threshold: 0.3  # 筹码密集度阈值
+  
+  # 数据采集API映射（对应kaipanla_crawler方法）
+  data_collection:
+    # 使用 get_daily_data(end_date, start_date) 获取交易日数据
+    # 返回：涨停数、实际涨停、跌停数、上涨家数、下跌家数、连板梯队等
+    daily_data_api: "get_daily_data"
+    
+    # 使用 get_consecutive_limit_up(date) 获取连板梯队详情
+    # 返回：最高连板、各连板高度的个股列表
+    limit_up_ladder_api: "get_consecutive_limit_up"
+    
+    # 使用 get_sector_ranking(date, index) 获取涨停原因板块
+    # 返回：板块列表、每个板块的涨停股票
+    sector_ranking_api: "get_sector_ranking"
+    
+    # 使用 get_sharp_withdrawal(date) 获取大幅回撤股票
+    # 返回：回撤股票列表
+    sharp_withdrawal_api: "get_sharp_withdrawal"
+    
+    # 使用 get_new_high_data(end_date, start_date) 获取百日新高
+    # 返回：新高股票数量
+    new_high_api: "get_new_high_data"
+    
+    # 使用 get_sector_strength(sector_code, date) 获取板块强度
+    # 返回：板块强度值
+    sector_strength_api: "get_sector_strength"
+    
+    # 使用 get_longhubang_stock_list(date) 获取龙虎榜
+    # 返回：上榜股票列表
+    longhubang_api: "get_longhubang_stock_list"
+
+# Stage2 Agent配置
+stage2:
+  enabled: true
+  # 基准预期计算参数
+  baseline:
+    # 连板股预期区间
+    continuous_limit_up:
+      strong_theme_min: 5.0  # 强势题材最低预期（%）
+      strong_theme_max: 8.0  # 强势题材最高预期（%）
+      weak_theme_min: -2.0  # 弱势题材最低预期（%）
+      weak_theme_max: 2.0  # 弱势题材最高预期（%）
+    
+    # 炸板股预期区间
+    failed_limit_up:
+      min: -2.0
+      max: 2.0
+    
+    # 最小竞价金额预期（万元）
+    min_auction_amount: 10000
+  
+  # 新题材检测关键词
+  new_theme_keywords:
+    - "政策"
+    - "规划"
+    - "利好"
+    - "突破"
+    - "创新"
+  
+  # 隔夜数据采集API映射
+  overnight_data_collection:
+    # 使用 get_plate_news(plate_id, index, page_size) 获取板块新闻
+    # 返回：新闻列表
+    plate_news_api: "get_plate_news"
+    
+    # 使用 get_sector_constituent_stocks(plate_id, date, order) 获取板块成分股
+    # 返回：成分股列表
+    sector_stocks_api: "get_sector_constituent_stocks"
+    
+    # 外部市场数据（通过AKShare获取）
+    # 美股数据、期货数据、中概股指数等
+    external_markets:
+      us_stocks: true  # 使用AKShare获取美股数据
+      futures: true    # 使用AKShare获取期货数据
+      a50_index: true  # 使用AKShare获取A50指数
+
+# Stage3 Agent配置
+stage3:
+  enabled: true
+  # 超预期分值权重
+  expectation_score:
+    volume_weight: 0.4  # 量能权重
+    price_weight: 0.4  # 价格权重
+    independence_weight: 0.2  # 独立性权重
+  
+  # 量能评分阈值
+  volume_thresholds:
+    excellent: 0.05  # 竞价金额占比>5%为优秀
+    good: 0.03  # 竞价金额占比>3%为良好
+    fair: 0.02  # 竞价金额占比>2%为一般
+  
+  # 撤单行为识别阈值
+  withdrawal:
+    price_drop_threshold: 3.0  # 价格下跌阈值（%）
+    volume_drop_threshold: 0.5  # 撤单量阈值（占初始挂单量比例）
+  
+  # 附加池筛选条件
+  additional_pool:
+    top_seals:
+      min_seal_ratio: 0.05  # 最小封单比
+      min_seal_amount: 50000  # 最小封单金额（万元）
+      top_n: 10  # 取前N名
+    
+    rush_positioning:
+      min_rush_coefficient: 0.03  # 最小抢筹价差系数
+      min_volume_ratio: 50  # 最小量比
+    
+    energy_burst:
+      amount_rank_threshold: 30  # 竞价金额排名阈值
+      volume_ratio_rank_threshold: 50  # 量比排名阈值
+    
+    reverse_nuclear:
+      min_yesterday_drop: -7.0  # 昨日最小跌幅（%）
+      min_today_open: -2.0  # 今日最小开盘涨幅（%）
+      min_auction_amount_ratio: 0.05  # 最小竞价金额占比
+    
+    sector_formation:
+      min_stocks_count: 3  # 板块内最少强势个股数
+      min_open_pct: 3.0  # 最小高开幅度（%）
+  
+  # 地位判定权重
+  status_score:
+    theme_recognition_weight: 0.35
+    urgency_weight: 0.35
+    emotion_hedge_weight: 0.30
+    top_n: 5  # 最终筛选前N名
+  
+  # 操作建议阈值
+  recommendation:
+    excellent_threshold: 80  # 优秀分值阈值（建议打板）
+    good_threshold: 60  # 良好分值阈值（建议低吸）
+    fair_threshold: 40  # 一般分值阈值（建议观望）
+  
+  # 竞价监测API映射（9:15-9:25）
+  auction_monitoring:
+    # 使用 get_realtime_market_mood() 获取实时市场情绪
+    # 返回：涨停家数、跌停家数、上涨下跌家数、涨跌比
+    market_mood_api: "get_realtime_market_mood"
+    
+    # 使用 get_realtime_actual_limit_up_down() 获取实时实际涨跌停
+    # 返回：实际涨停数、实际跌停数
+    actual_limit_up_down_api: "get_realtime_actual_limit_up_down"
+    
+    # 使用 get_realtime_board_stocks(board_type) 获取指定连板股票
+    # board_type: 1=首板, 2=二板, 3=三板, 4=四板, 5=五板及以上
+    # 返回：股票列表（代码、名称、涨停价、封单额等）
+    board_stocks_api: "get_realtime_board_stocks"
+    
+    # 使用 get_realtime_all_boards_stocks() 获取所有连板股票
+    # 返回：首板到五板以上的所有股票
+    all_boards_api: "get_realtime_all_boards_stocks"
+    
+    # 使用 get_realtime_index_trend(stock_id, time) 获取指数趋势
+    # stock_id: "801900"=昨日涨停今表现, "801903"=昨日断板今表现
+    # 返回：涨跌幅数据
+    index_trend_api: "get_realtime_index_trend"
+    
+    # 使用 get_realtime_sharp_withdrawal() 获取实时大幅回撤
+    # 返回：回撤股票列表
+    sharp_withdrawal_api: "get_realtime_sharp_withdrawal"
+    
+    # 使用 get_realtime_rise_fall_analysis() 获取涨跌分析
+    # 返回：涨停数、跌停数、炸板率、昨日涨停今表现等
+    rise_fall_analysis_api: "get_realtime_rise_fall_analysis"
+    
+    # 使用 get_sector_limit_up_ladder(date) 获取板块连板梯队
+    # 返回：各板块的连板股票
+    sector_ladder_api: "get_sector_limit_up_ladder"
+    
+    # 使用 get_market_limit_up_ladder(date) 获取全市场连板梯队
+    # 返回：全市场连板分布
+    market_ladder_api: "get_market_limit_up_ladder"
+    
+    # 使用 get_sector_capital_data(sector_code, date) 获取板块资金
+    # 返回：成交额、主力净额、涨跌幅等
+    sector_capital_api: "get_sector_capital_data"
+    
+    # 使用 get_sector_bidding_anomaly(date) 获取板块竞价异动
+    # 返回：竞价异动板块列表
+    bidding_anomaly_api: "get_sector_bidding_anomaly"
+    
+    # 使用 get_stock_intraday(stock_code, date) 获取个股分时
+    # 返回：分时价格、成交量、主力净流入等
+    stock_intraday_api: "get_stock_intraday"
+    
+    # 使用 get_sector_intraday(sector_code, date) 获取板块分时
+    # 返回：板块分时价格、成交量等
+    sector_intraday_api: "get_sector_intraday"
+    
+    # 使用 get_stock_big_order_intraday(stock_code, date) 获取大单净额
+    # 返回：大单买卖、净额分时数据
+    big_order_api: "get_stock_big_order_intraday"

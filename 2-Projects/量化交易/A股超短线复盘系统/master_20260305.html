@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A股复盘报告 20260305</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 100%;
+            margin: 0;
+            padding: 16px;
+            background-color: #fff;
+        }
+        .header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #e74c3c;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 0 0 10px 0;
+            font-weight: bold;
+        }
+        .header .meta {
+            color: #7f8c8d;
+            font-size: 13px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        .subtitle-note {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 12px;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #c0392b;
+            font-size: 18px;
+            border-left: 4px solid #e74c3c;
+            padding-left: 12px;
+            margin: 25px 0 15px 0;
+            font-weight: bold;
+        }
+        h3 {
+            color: #2980b9;
+            font-size: 15px;
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+        }
+        h4 {
+            color: #8e44ad;
+            font-size: 14px;
+            margin: 15px 0 8px 0;
+            font-weight: bold;
+        }
+        p {
+            margin: 10px 0;
+            text-align: justify;
+        }
+        ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        li {
+            margin: 8px 0;
+        }
+        ol {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe6e6 100%);
+            border: 1px solid #feb2b2;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border: 1px solid #fbbf24;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .success-box {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border: 1px solid #86efac;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border: 1px solid #93c5fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+        th {
+            background-color: #c0392b;
+            color: white;
+            padding: 12px 8px;
+            text-align: left;
+            font-weight: bold;
+        }
+        td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        .tag-red {
+            background-color: #fee2e2;
+            color: #dc2626;
+        }
+        .tag-green {
+            background-color: #d1fae5;
+            color: #059669;
+        }
+        .tag-blue {
+            background-color: #dbeafe;
+            color: #2563eb;
+        }
+        .tag-yellow {
+            background-color: #fef3c7;
+            color: #d97706;
+        }
+        .tag-purple {
+            background-color: #f3e8ff;
+            color: #7c3aed;
+        }
+        .divider {
+            border: none;
+            border-top: 1px dashed #cbd5e1;
+            margin: 20px 0;
+        }
+        .footer {
+            text-align: center;
+            color: #64748b;
+            font-size: 12px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+        .quote {
+            border-left: 4px solid #e74c3c;
+            background-color: #fef2f2;
+            padding: 12px 15px;
+            margin: 15px 0;
+            font-style: italic;
+            color: #7f1d1d;
+        }
+        strong {
+            color: #c0392b;
+        }
+        .data-highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .positive {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .negative {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .emoji {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📊 A股复盘报告 20260305</h1>
+        <div class="meta">生成时间：2026-03-05 15:15:37</div>
+    </div>
+
+    <div class="subtitle">master学堂纸上谈兵小能手</div>
+
+    <hr class="divider">
+
+    <h2>一、大盘总结</h2>
+    
+    <ul>
+        <li><strong>指数走势</strong>：中证全指昨日低开低走，下跌0.73%，今日高开高走，反弹<span class="positive">+1.07%</span>。两日呈现"V型反转"结构，技术上完成对前日阴线的反包，短期压制情绪释放后迎来修复。</li>
+        <li><strong>量能变化</strong>：成交额连续两日维持在<span class="data-highlight">2.37万亿以上</span>（今日2.39万亿），处于近期高位水平，说明市场交投活跃，资金并未离场，回调属于结构性换手而非系统性撤退。</li>
+        <li><strong>市场情绪</strong>：
+            <ul>
+                <li>昨日为"谨慎"，上涨家数仅1745家，下跌3640家，跌停21家，显示局部风险释放；</li>
+                <li>今日转为"积极"，上涨家数达<span class="data-highlight">4079家</span>，下跌仅1306家，涨停79家，跌停7家，<span class="data-highlight">涨跌比接近3:1</span>，涨停数量显著回升，情绪明显回暖。</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="success-box">
+        <span class="emoji">✅</span> <strong>定性判断：当前处于轻指数重个股阶段，指数震荡蓄势，但题材炒作热度回升，<span class="data-highlight">市场从谨慎向主升初期过渡</span>，具备结构性进攻条件。</strong>
+    </div>
+
+    <hr class="divider">
+
+    <h2>二、板块与主线分析</h2>
+
+    <h3>强势板块及原因</h3>
+
+    <table>
+        <tr>
+            <th style="width:20%">板块</th>
+            <th style="width:12%">涨幅</th>
+            <th style="width:30%">涨停贡献</th>
+            <th style="width:38%">核心逻辑</th>
+        </tr>
+        <tr>
+            <td><strong>MicroLED概念</strong></td>
+            <td class="positive">+8.26%</td>
+            <td>多只首板+龙头三安光电</td>
+            <td>技术迭代预期+AI眼镜/车载显示催化</td>
+        </tr>
+        <tr>
+            <td><strong>MiniLED</strong></td>
+            <td class="positive">+6.42%</td>
+            <td>龙腾光电、芯瑞达等涨停</td>
+            <td>苹果MR新品预期+消费电子复苏</td>
+        </tr>
+        <tr>
+            <td><strong>电子纸</strong></td>
+            <td class="positive">+6.08%</td>
+            <td>龙腾光电领涨</td>
+            <td>国企改革+低功耗显示替代趋势</td>
+        </tr>
+        <tr>
+            <td><strong>柔性直流输电</strong></td>
+            <td class="positive">+4.31%</td>
+            <td>通光线缆（2板）、汉缆股份（2板）、百利电气（首板）</td>
+            <td>特高压建设加速+新型电力系统政策驱动</td>
+        </tr>
+        <tr>
+            <td><strong>柔性屏(折叠屏)</strong></td>
+            <td class="positive">+3.68%</td>
+            <td>艾比森、欧菲光等涨停</td>
+            <td>华为/小米新机发布预期</td>
+        </tr>
+    </table>
+
+    <div class="info-box">
+        <span class="emoji">🔍</span> <strong>资金流向判断：</strong>
+        <ul>
+            <li><strong>流入板块</strong>：MicroLED、MiniLED、电子纸、柔性直流输电、AI眼镜相关消费电子——均与"新型显示+智能终端"强关联，<span class="data-highlight">资金集中涌入科技成长赛道</span>。</li>
+            <li><strong>流出板块</strong>：油气产业链（洲际油气、石化油服等）、农业种植（亚盛集团）——昨日强势，今日集体回调，<span class="data-highlight">资金兑现明显</span>。</li>
+        </ul>
+    </div>
+
+    <h3>与涨停股对应性验证</h3>
+    <ul>
+        <li>MicroLED/MiniLED板块中，<strong>三安光电、龙腾光电、芯瑞达、欧菲光</strong>均为涨停，且多集中在早盘封板，<span class="data-highlight">资金介入坚决</span>；</li>
+        <li>柔性直流输电板块中，<strong>通光线缆（2板）、汉缆股份（2板）、积成电子（2板）</strong>形成梯队，<span class="data-highlight">板块效应完整</span>；</li>
+        <li>相比之下，油气类昨日连板股今日大面积断板甚至跌停（如水发燃气跌停），<span class="data-highlight">无首板助攻，无梯队延续</span>，确认资金出逃。</li>
+    </ul>
+
+    <div class="success-box">
+        <span class="emoji">✅</span> <strong>结论：<span class="data-highlight">科技主线（新型显示+智能电网）有持续资金流入，传统周期题材正在被抛弃</span>。</strong>
+    </div>
+
+    <hr class="divider">
+
+    <h2>三、情绪周期判断（重点）</h2>
+
+    <h3>昨日高位股表现分析</h3>
+    <ul>
+        <li>昨日3板及以上个股共7只；</li>
+        <li>今日表现：
+            <ul>
+                <li><strong>晋级成功仅1只</strong>：ST京蓝（7板→继续涨停）；</li>
+                <li><strong>断板6只</strong>，其中：</li>
+                <li>水发燃气：<span class="data-highlight">跌停（核按钮）</span></li>
+                <li>石化油服、准油股份、亚盛集团：跌幅超5%</li>
+                <li>洲际油气、山东墨龙：微涨但未封板</li>
+            </ul>
+        </li>
+        <li><strong>晋级率 = 1/7 ≈ 14.3%</strong>，低于20%警戒线，属<strong>极低水平</strong></li>
+    </ul>
+
+    <h3>关键信号识别</h3>
+    <ul>
+        <li>出现<span class="data-highlight">核按钮</span>（水发燃气跌停）；</li>
+        <li>多只高位周期股（油气、农业）集体补跌；</li>
+        <li>唯一晋级者为<strong>ST股+复牌概念</strong>，不具备普遍代表性，属独立逻辑。</li>
+    </ul>
+
+    <h3>资金行为解读</h3>
+    <ul>
+        <li>高位周期主线（油气、农业）遭遇<span class="data-highlight">全面兑现</span>；</li>
+        <li>资金并未空仓，而是切换至<span class="data-highlight">低位科技题材</span>（MicroLED、AI眼镜、柔性输电）；</li>
+        <li><span class="data-highlight">高低切明确发生</span>：从7板的ST京蓝到2板的通光线缆、积成电子，再到批量首板科技股，形成新旧交替。</li>
+    </ul>
+
+    <div class="success-box">
+        <span class="emoji">✅</span> <strong>情绪周期定位：</strong>
+        <br>
+        当前处于 <strong>主升期初期 + 高位退潮末期</strong> 的交接阶段
+        <br>
+        ——老周期（油气/农业）<span class="data-highlight">退潮确认</span>，新周期（科技/新型电力）<span class="data-highlight">启动信号强烈</span>
+    </div>
+
+    <div class="warning-box">
+        <span class="emoji">⚠️</span> <strong>风险偏好：整体偏防御，但局部进攻意愿强，偏好低位启动、逻辑硬核、机构加持的品种</strong>
+    </div>
+
+    <div class="info-box">
+        <span class="emoji">🎯</span> <strong>明日策略建议：谨慎进攻，聚焦新主线首板与2板中军，回避高位断板股。</strong>
+    </div>
+
+    <hr class="divider">
+
+    <h2>四、主线与支线详细梳理</h2>
+
+    <h3><span class="emoji">🔥</span> 主线1：新型显示 + AI硬件延伸链</h3>
+    
+    <h4>高度龙：</h4>
+    <p>暂无3板以上，但<span class="data-highlight">三安光电（首板）</span> 作为行业龙头，市值大、机构持仓多，具备<span class="data-highlight">中军变高度龙潜力</span></p>
+
+    <h4>中军：</h4>
+    <ul>
+        <li><strong>三安光电</strong>（MicroLED+碳化硅+光芯片）</li>
+        <li><strong>龙腾光电</strong>（MiniLED+电子纸+国企改革）</li>
+    </ul>
+
+    <h4>首板梯队：</h4>
+    <ul>
+        <li>三安光电（600703）</li>
+        <li>龙腾光电（688055）</li>
+        <li>芯瑞达（002983）</li>
+        <li>欧菲光（002456）</li>
+        <li>纬达光电（920001）</li>
+    </ul>
+
+    <h4>板块强度：</h4>
+    <ul>
+        <li>涉及MicroLED/MiniLED/电子纸/柔性屏等细分，合计贡献<span class="data-highlight">6只涨停</span>；</li>
+        <li>多股早盘快速封板，<span class="data-highlight">连板率虽低但首板爆发力强</span>；</li>
+        <li>叠加AI眼镜、人形机器人、车载显示等多重逻辑，<span class="data-highlight">想象空间大</span></li>
+    </ul>
+
+    <div class="success-box">
+        <span class="emoji">✅</span> 支撑数据：板块平均涨幅超6%，龙头三安光电带动效应显著，<span class="data-highlight">具备成为新主线的核心要素</span>
+    </div>
+
+    <h3><span class="emoji">🔥</span> 主线2：新型电力系统（柔性直流输电 + 特高压）</h3>
+    
+    <h4>高度龙：</h4>
+    <p>暂无，但<span class="data-highlight">通光线缆（2板）</span> 已卡位成为空间板之一</p>
+
+    <h4>中军：</h4>
+    <ul>
+        <li><strong>通光线缆</strong>（2板，柔性直流+商业航天）</li>
+        <li><strong>汉缆股份</strong>（2板，海风+特高压）</li>
+        <li><strong>积成电子</strong>（2板，电网设备+中标）</li>
+    </ul>
+
+    <h4>首板梯队：</h4>
+    <ul>
+        <li>百利电气（可控核聚变+天津国资）</li>
+        <li>顺钠股份（算力基建+干式变压器）</li>
+    </ul>
+
+    <h4>板块强度：</h4>
+    <ul>
+        <li>共计<span class="data-highlight">4只涨停</span>，其中3只为2板或首板；</li>
+        <li>多股叠加"电网设备+新能源+国企改革"，<span class="data-highlight">政策催化明确</span>；</li>
+        <li>与"东数西算""新型城镇化"形成共振</li>
+    </ul>
+
+    <div class="success-box">
+        <span class="emoji">✅</span> 支撑数据：板块涨幅4.31%，涨停分布均匀，<span class="data-highlight">梯队完整度高，具备持续性基础</span>
+    </div>
+
+    <h3><span class="emoji">🌿</span> 支线1：算力租赁 + 数据要素</h3>
+    <ul>
+        <li>表现个股：奥瑞德（首板）、铜牛信息（首板）、*ST东易（重整完成）</li>
+        <li>特征：多为中小市值+国资背景+叠加AI应用</li>
+        <li>风险：缺乏连板支撑，<span class="data-highlight">纯事件驱动型</span>，持续性待观察</li>
+    </ul>
+
+    <h3><span class="emoji">🌿</span> 支线2：ST摘帽 + 控股权变更</h3>
+    <ul>
+        <li>表现个股：*ST步森、*ST景峰、ST京蓝（唯一晋级高标）</li>
+        <li>特征：低价+重组预期+国资接盘</li>
+        <li>风险：<span class="data-highlight">游资主导，波动剧烈，非主流资金偏好</span></li>
+    </ul>
+
+    <hr class="divider">
+
+    <h2>五、昨日高标PK分析</h2>
+
+    <h3>2进3 晋级情况（今日无3板及以上，全部失败）</h3>
+    <ul>
+        <li>所有昨日2板及以上个股均未能晋级3板；</li>
+        <li>唯一例外是<strong>ST京蓝</strong>（原7板），今日继续涨停，但因其ST属性特殊，<span class="data-highlight">不具参考意义</span>；</li>
+        <li>正常连板梯队出现<span class="data-highlight">断层</span>，反映市场对高位接力信心不足。</li>
+    </ul>
+
+    <div class="highlight-box">
+        <span class="emoji">❌</span> <strong>失败代表：</strong>
+        <ul>
+            <li>水发燃气（4板→跌停）：<span class="data-highlight">核按钮</span>，主因氢能源无新催化，纯情绪炒作品种；</li>
+            <li>石化油服、准油股份：海外订单逻辑被证伪或延后，<span class="data-highlight">缺乏基本面支撑</span></li>
+        </ul>
+    </div>
+
+    <div class="warning-box">
+        <span class="emoji">✅</span> <strong>胜出特征缺失</strong>，说明当前市场<span class="data-highlight">不认可旧周期高位股继续拓展空间</span>
+    </div>
+
+    <h3>1进2 晋级情况</h3>
+    <ul>
+        <li>昨日首板数量未知，但从今日2板名单看：</li>
+        <li>共7只2板，集中在：
+            <ul>
+                <li>智能自控（工业互联网）</li>
+                <li>卓郎智能（AI工厂）</li>
+                <li>积成电子（电网）</li>
+                <li>王力安防（智能家居）</li>
+                <li>通光线缆（特高压）</li>
+                <li>顺钠股份（算力基建）</li>
+                <li>汉缆股份（海风电缆）</li>
+            </ul>
+        </li>
+        <li><strong>成功率尚可，且方向集中于"新型工业化+新基建"</strong></li>
+    </ul>
+
+    <div class="success-box">
+        <span class="emoji">✅</span> <strong>胜出特征总结：</strong>
+        <ul>
+            <li>均具备<span class="data-highlight">政策利好背书</span>（新型工业化、东数西算、特高压建设）；</li>
+            <li>多为<span class="data-highlight">早盘秒板或快速回封</span>，资金抢筹明显；</li>
+            <li>概念叠加丰富，尤其偏好"<span class="data-highlight">电网+新能源+国企改革</span>"组合</li>
+        </ul>
+    </div>
+
+    <div class="info-box">
+        <span class="emoji">👉</span> 结论：<span class="data-highlight">资金正在通过1进2筛选新主线种子选手，高低切正在进行中</span>
+    </div>
+
+    <hr class="divider">
+
+    <h2>六、首板个股逻辑总结（按题材分类）</h2>
+
+    <h3>【新型显示】</h3>
+    <ul>
+        <li><strong>三安光电</strong>：MicroLED全球龙头+碳化硅衬底量产+光芯片布局，受益AI眼镜放量</li>
+        <li><strong>龙腾光电</strong>：MiniLED+电子纸双轮驱动，国企改革加持产能释放</li>
+        <li><strong>芯瑞达</strong>：AI眼镜核心供应商，车载MiniLED模组进入量产阶段</li>
+        <li><strong>欧菲光</strong>：光学龙头重启增长，3D ToF+人形机器人视觉系统新突破</li>
+        <li><strong>纬达光电</strong>：OLED偏光片国产替代主力，AI眼镜偏光片已送样</li>
+    </ul>
+
+    <h3>【新型电力系统】</h3>
+    <ul>
+        <li><strong>通光线缆</strong>：柔性直流输电中标大单+商业航天光纤供货资质</li>
+        <li><strong>百利电气</strong>：可控核聚变开关设备供应商，天津国资整合预期</li>
+        <li><strong>顺钠股份</strong>：干式变压器用于数据中心，北美算力订单落地</li>
+        <li><strong>渤海化学</strong>：丙烯酸酯新材料投产，配套风电叶片制造</li>
+    </ul>
+
+    <h3>【算力与数据要素】</h3>
+    <ul>
+        <li><strong>奥瑞德</strong>：算力租赁+文生视频Sora概念，年报预增引爆估值修复</li>
+        <li><strong>铜牛信息</strong>：北京国资云平台，承接政务算力需求扩容</li>
+        <li><strong>*ST东易</strong>：家装AI模型上线，重整后轻装上阵转型数字服务</li>
+    </ul>
+
+    <h3>【其他】</h3>
+    <ul>
+        <li><strong>奥康国际</strong>：C2M智能制造升级，皮鞋产线自动化提效</li>
+        <li><strong>*ST步森</strong>：宝鸡国资拟入主，男装品牌资产价值重估</li>
+        <li><strong>宇新股份</strong>：顺酐扩产项目投产，LPG深加工利润增厚</li>
+        <li><strong>*ST景峰</strong>：医药CDMO业务恢复，合成生物新药获批临床</li>
+    </ul>
+
+    <hr class="divider">
+
+    <h2>七、明日策略与风险提示</h2>
+
+    <h3><span class="emoji">✅</span> 机会方向（聚焦主线）</h3>
+    <ol>
+        <li><strong>新型显示主线</strong>：
+            <ul>
+                <li>关注<span class="data-highlight">三安光电</span>是否走出趋势中军行情；</li>
+                <li>观察<span class="data-highlight">龙腾光电、芯瑞达</span>能否走出2进3，形成先锋梯队；</li>
+                <li>挖掘低位补涨：如深纺织A（偏光片）、隆利科技（MiniLED背光）</li>
+            </ul>
+        </li>
+        <li><strong>新型电力系统主线</strong>：
+            <ul>
+                <li><span class="data-highlight">通光线缆</span>作为目前最高板，观察其能否挑战3板，实现卡位；</li>
+                <li>积成电子、汉缆股份若弱转强，可视为中军确认；</li>
+                <li>首板助攻标的如百利电气，若有消息催化可博弈连板</li>
+            </ul>
+        </li>
+        <li><strong>高低切机会</strong>：
+            <ul>
+                <li>优先选择"<span class="data-highlight">昨日首板 + 早盘封板 + 概念叠加多 + 国资背景</span>"组合；</li>
+                <li>回避单一题材、无业绩支撑的纯情绪票</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h3><span class="emoji">⚠️</span> 风险警示</h3>
+    <ol>
+        <li><strong>高位股风险</strong>：
+            <ul>
+                <li>昨日4板以上个股除ST外全部断板，<span class="data-highlight">水发燃气跌停</span>，警惕其余高位股补跌；</li>
+                <li>油气、农业等周期题材已进入退潮期，<span class="data-highlight">不可抄底</span></li>
+            </ul>
+        </li>
+        <li><strong>题材退潮信号</strong>：
+            <ul>
+                <li>若明日<span class="data-highlight">通光线缆断板且无新空间板出现</span>，则可能进入情绪冰点；</li>
+                <li>ST股独强往往是市场弱势信号，需警惕"<span class="data-highlight">僵尸行情</span>"</li>
+            </ul>
+        </li>
+        <li><strong>流动性风险</strong>：
+            <ul>
+                <li>虽然总量活跃，但<span class="data-highlight">资金集中在少数主线</span>，边缘题材易出现"天地板"或炸板潮；</li>
+                <li>尾盘突击涨停股（如奥康国际）<span class="data-highlight">缺乏助攻，慎追</span></li>
+            </ul>
+        </li>
+    </ol>
+
+    <div class="highlight-box">
+        <span class="emoji">🎯</span> <strong>总策略口诀：</strong>
+        <br>
+        <strong>弃高就低，拥抱主线；宁做主线首板，不做支线龙头</strong>
+    </div>
+
+    <hr class="divider">
+
+    <div class="footer">
+        <strong>数据来源：公开行情及概念库（截至2026年3月5日收盘）</strong>
+        <br>
+        分析基于客观事实，不构成投资建议
+    </div>
+
+</body>
+</html>

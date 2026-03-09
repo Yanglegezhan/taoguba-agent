@@ -1,0 +1,4 @@
+# file: D:\pythonProject2\量化交易1\Ashare复盘multi-agents\next_day_expectation_agent\src\stage1\report_generator.py
+# hypothesis_version: 6.150.2
+
+[0.0, 300, '--date', '--format', '--no-save', '--output-format', '--quiet', '-m', 'Theme_repay_agent', 'capacity', 'change_pct', 'current_price', 'cycle_node', 'cycle_stage', 'hot_themes', 'index_replay_agent', 'json', 'leading_stocks', 'long_term', 'loss_effect', 'market_coefficient', 'market_summary', 'name', 'operation_advice', 'output', 'position', 'profit_score', 'r', 'reports', 'resistance_levels', 'scenario', 'sentiment', 'sentiment_cli.py', 'short_term', 'src.cli', 'strength', 'support_levels', 'target', 'theme_cli.py', 'trend', 'ultra_short_emotion', 'utf-8', '大盘分析Agent执行超时', '大盘分析报告生成成功', '情绪分析Agent执行超时', '情绪分析报告生成成功', '报告生成器初始化完成', '题材分析Agent执行超时', '题材分析报告生成成功']

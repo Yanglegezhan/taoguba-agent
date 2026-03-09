@@ -1,0 +1,4 @@
+# file: D:\pythonProject2\量化交易1\Ashare复盘multi-agents\next_day_expectation_agent\src\stage1\stage1_agent.py
+# hypothesis_version: 6.150.2
+
+['-', 'Stage1 Agent初始化完成', 'Stage1Agent', 'agent', 'base_dir', 'config', 'data', 'database', 'date', 'db_path', 'emotion_report', 'emotion_report_path', 'enable_database', 'error', 'file_storage', 'gene_pool_builder', 'gene_pool_path', 'market_report', 'market_report_path', 'ready', 'report_generator', 'stage1', 'status', 'storage_stats', 'success', 'technical_calculator', 'theme_report', 'theme_report_path', '大盘分析报告生成成功', '情绪分析报告生成成功', '构建基因池失败', '步骤1: 生成复盘报告', '步骤2: 构建基因池', '步骤3: 计算技术位', '步骤4: 存储数据', '步骤5: 存储到数据库', '生成复盘报告失败', '题材分析报告生成成功']

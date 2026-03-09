@@ -1,0 +1,4 @@
+# file: D:\pythonProject2\量化交易1\Ashare复盘multi-agents\next_day_expectation_agent\src\stage1\gene_pool_builder.py
+# hypothesis_version: 6.150.2
+
+[2.0, 3.0, 7.0, 9.9, 10000, ',', '代码', '名称', '基因池构建器初始化完成', '市值', '成交量', '成交额', '所属题材', '换手率', '收盘价', '是否炸板', '最新价', '板块', '流通市值', '涨跌幅', '股票代码', '股票名称', '连板天数', '连板高度']

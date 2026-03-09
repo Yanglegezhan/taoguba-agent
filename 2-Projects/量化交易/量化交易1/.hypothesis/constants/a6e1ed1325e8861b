@@ -1,0 +1,4 @@
+# file: D:\pythonProject2\量化交易1\Ashare复盘multi-agents\next_day_expectation_agent\src\storage\file_storage_manager.py
+# hypothesis_version: 6.150.2
+
+[1024, '%Y%m%d', '*', '_', 'additional_pool', 'auction_monitoring', 'base_dir', 'baseline_expectation', 'config', 'daily_report', 'data', 'date', 'decision_navigation', 'emotion_report', 'expectations', 'file_count', 'gene_pool', 'historical', 'logs', 'market_report', 'new_themes', 'overnight_variables', 'r', 'size_mb', 'stage1', 'stage1_output', 'stage2', 'stage2_output', 'stage3', 'stage3_output', 'stages', 'theme_report', 'to_dict', 'total_size_mb', 'utf-8', 'w', '{']

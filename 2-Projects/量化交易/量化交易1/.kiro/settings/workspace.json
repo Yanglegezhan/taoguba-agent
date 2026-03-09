@@ -1,0 +1,6 @@
+{
+  "kiro.autonomy.mode": "autopilot",
+  "kiro.autonomy.autoApproveCommands": true,
+  "kiro.autonomy.autoApproveTests": true,
+  "kiro.language": "zh-CN"
+}

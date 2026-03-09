@@ -1,0 +1,154 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GenePool",
+  "description": "基因库数据结构",
+  "type": "object",
+  "required": ["date", "continuous_limit_up", "failed_limit_up", "recognition_stocks", "trend_stocks"],
+  "properties": {
+    "date": {
+      "type": "string",
+      "description": "日期，格式：YYYY-MM-DD",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "continuous_limit_up": {
+      "type": "array",
+      "description": "连板梯队",
+      "items": {
+        "$ref": "#/definitions/Stock"
+      }
+    },
+    "failed_limit_up": {
+      "type": "array",
+      "description": "炸板股",
+      "items": {
+        "$ref": "#/definitions/Stock"
+      }
+    },
+    "recognition_stocks": {
+      "type": "array",
+      "description": "辨识度个股",
+      "items": {
+        "$ref": "#/definitions/Stock"
+      }
+    },
+    "trend_stocks": {
+      "type": "array",
+      "description": "趋势股",
+      "items": {
+        "$ref": "#/definitions/Stock"
+      }
+    },
+    "all_stocks": {
+      "type": "object",
+      "description": "所有个股字典（code -> Stock）",
+      "additionalProperties": {
+        "$ref": "#/definitions/Stock"
+      }
+    }
+  },
+  "definitions": {
+    "Stock": {
+      "type": "object",
+      "required": ["code", "name", "market_cap", "price", "change_pct", "volume", "amount", "turnover_rate", "board_height", "themes"],
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "股票代码"
+        },
+        "name": {
+          "type": "string",
+          "description": "股票名称"
+        },
+        "market_cap": {
+          "type": "number",
+          "description": "流通市值（亿元）",
+          "minimum": 0
+        },
+        "price": {
+          "type": "number",
+          "description": "当前价格",
+          "minimum": 0
+        },
+        "change_pct": {
+          "type": "number",
+          "description": "涨跌幅（%）"
+        },
+        "volume": {
+          "type": "number",
+          "description": "成交量",
+          "minimum": 0
+        },
+        "amount": {
+          "type": "number",
+          "description": "成交额（万元）",
+          "minimum": 0
+        },
+        "turnover_rate": {
+          "type": "number",
+          "description": "换手率（%）",
+          "minimum": 0
+        },
+        "board_height": {
+          "type": "integer",
+          "description": "连板高度",
+          "minimum": 0
+        },
+        "themes": {
+          "type": "array",
+          "description": "所属题材",
+          "items": {
+            "type": "string"
+          }
+        },
+        "technical_levels": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/TechnicalLevels"
+            }
+          ]
+        }
+      }
+    },
+    "TechnicalLevels": {
+      "type": "object",
+      "required": ["ma5", "ma10", "ma20", "previous_high", "chip_zone_low", "chip_zone_high", "distance_to_ma5_pct", "distance_to_high_pct"],
+      "properties": {
+        "ma5": {
+          "type": "number",
+          "description": "5日均线"
+        },
+        "ma10": {
+          "type": "number",
+          "description": "10日均线"
+        },
+        "ma20": {
+          "type": "number",
+          "description": "20日均线"
+        },
+        "previous_high": {
+          "type": "number",
+          "description": "前期高点"
+        },
+        "chip_zone_low": {
+          "type": "number",
+          "description": "筹码密集区下沿"
+        },
+        "chip_zone_high": {
+          "type": "number",
+          "description": "筹码密集区上沿"
+        },
+        "distance_to_ma5_pct": {
+          "type": "number",
+          "description": "距离5日均线百分比"
+        },
+        "distance_to_high_pct": {
+          "type": "number",
+          "description": "距离前高百分比"
+        }
+      }
+    }
+  }
+}

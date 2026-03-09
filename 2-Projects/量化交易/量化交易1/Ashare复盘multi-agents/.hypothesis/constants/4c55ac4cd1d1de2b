@@ -1,0 +1,4 @@
+# file: D:\pythonProject2\量化交易1\Ashare复盘multi-agents\sentiment_replay_agent\src\sentiment\prompt_engine.py
+# hypothesis_version: 6.150.2
+
+['\n## Few-shot示例\n', '\n**期望输出**：', '\n**输入数据**：', '+', '- 市场细节数据', '- 最新一日与昨日的环比数据', 'N/A', '```', '```json', 'analysis.txt', 'examples', 'input', 'latest_vs_yesterday', 'loss_effect_change', 'market_details', 'output', 'prompts/sentiment/', 'r', 'sentiment_data', 'system.txt', 'utf-8', '{all_a_change}', '{analysis_date}', '{down_count}', '{index_change}', '{latest_loss_effect}', '{limit_down_count}', '{limit_up_count}', '{max_consecutive}', '{sentiment_table}', '{up_count}', '市场数据为空', '情绪指标数据为空', '无', '，']

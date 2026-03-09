@@ -1,0 +1,1264 @@
+{
+  "date": "2026-03-05",
+  "index": {
+    "sh": 0.0,
+    "name": "上证指数"
+  },
+  "market": {
+    "up_count": 3864,
+    "down_count": 1227,
+    "flat_count": 88,
+    "limit_up_count": 78,
+    "limit_down_count": 7
+  },
+  "limit_up": {
+    "count": 68,
+    "down_count": 3,
+    "blown_count": 6,
+    "blown_rate": 0.298969,
+    "yesterday_performance": 2.503083137552178
+  },
+  "sectors": {
+    "top": [
+      {
+        "name": "面板",
+        "change": 0.0,
+        "limit_up_count": 23
+      },
+      {
+        "name": "智能电网",
+        "change": 0.0,
+        "limit_up_count": 9
+      },
+      {
+        "name": "通信",
+        "change": 0.0,
+        "limit_up_count": 4
+      },
+      {
+        "name": "人工智能",
+        "change": 0.0,
+        "limit_up_count": 4
+      },
+      {
+        "name": "算力",
+        "change": 0.0,
+        "limit_up_count": 3
+      },
+      {
+        "name": "石油石化",
+        "change": 0.0,
+        "limit_up_count": 3
+      },
+      {
+        "name": "新型工业化",
+        "change": 0.0,
+        "limit_up_count": 2
+      },
+      {
+        "name": "化工",
+        "change": 0.0,
+        "limit_up_count": 2
+      },
+      {
+        "name": "燃气轮机",
+        "change": 0.0,
+        "limit_up_count": 1
+      },
+      {
+        "name": "发电机",
+        "change": 0.0,
+        "limit_up_count": 1
+      }
+    ]
+  },
+  "consecutive": {
+    "1": [
+      {
+        "name": "兆驰股份",
+        "code": "002429",
+        "concepts": "Mini/Micro、AI应用",
+        "turnover": 381123200,
+        "seal_amount": 223014728
+      },
+      {
+        "name": "华灿光电",
+        "code": "300323",
+        "concepts": "Mini/Micro、面板",
+        "turnover": 316055072,
+        "seal_amount": 559539915
+      },
+      {
+        "name": "国星光电",
+        "code": "002449",
+        "concepts": "Mini/Micro、先进封装",
+        "turnover": 91298736,
+        "seal_amount": 140422139
+      },
+      {
+        "name": "三安光电",
+        "code": "600703",
+        "concepts": "Mini/Micro、碳化硅",
+        "turnover": 492255072,
+        "seal_amount": 1280844285
+      },
+      {
+        "name": "安妮股份",
+        "code": "002235",
+        "concepts": "实控人变更、知识产权",
+        "turnover": 85359408,
+        "seal_amount": 348991219
+      },
+      {
+        "name": "冠捷科技",
+        "code": "000727",
+        "concepts": "Mini/Micro、面板",
+        "turnover": 95838704,
+        "seal_amount": 534961551
+      },
+      {
+        "name": "石英股份",
+        "code": "603688",
+        "concepts": "电子布、非金属材料",
+        "turnover": 125621904,
+        "seal_amount": 610773288
+      },
+      {
+        "name": "芯瑞达",
+        "code": "002983",
+        "concepts": "Mini/Micro、端侧AI",
+        "turnover": 95329760,
+        "seal_amount": 112587266
+      },
+      {
+        "name": "兴民智通",
+        "code": "002355",
+        "concepts": "无人驾驶、智能驾驶",
+        "turnover": 101879672,
+        "seal_amount": 170941361
+      },
+      {
+        "name": "奥拓电子",
+        "code": "002587",
+        "concepts": "Mini/Micro、VR/AR/MR",
+        "turnover": 46301716,
+        "seal_amount": 248597497
+      },
+      {
+        "name": "雷曼光电",
+        "code": "300162",
+        "concepts": "Mini/Micro、面板",
+        "turnover": 104249608,
+        "seal_amount": 463496753
+      },
+      {
+        "name": "奥瑞德",
+        "code": "600666",
+        "concepts": "AI视频、AI应用",
+        "turnover": 71152056,
+        "seal_amount": 588054252
+      },
+      {
+        "name": "东方电气",
+        "code": "600875",
+        "concepts": "燃气轮机、可控核聚变",
+        "turnover": 334864384,
+        "seal_amount": 3404042719
+      },
+      {
+        "name": "沃格光电",
+        "code": "603773",
+        "concepts": "Mini/Micro、玻璃基板",
+        "turnover": 122598936,
+        "seal_amount": 303872752
+      },
+      {
+        "name": "联建光电",
+        "code": "300269",
+        "concepts": "Mini/Micro、消费电子",
+        "turnover": 139034784,
+        "seal_amount": 639183415
+      },
+      {
+        "name": "同兴达",
+        "code": "002845",
+        "concepts": "OLED、面板",
+        "turnover": 112024208,
+        "seal_amount": 197699756
+      },
+      {
+        "name": "华塑控股",
+        "code": "000509",
+        "concepts": "面板、国有企业",
+        "turnover": 140412032,
+        "seal_amount": 169414456
+      },
+      {
+        "name": "泰坦股份",
+        "code": "003036",
+        "concepts": "固态电池、锂电池",
+        "turnover": 60827712,
+        "seal_amount": 91666057
+      },
+      {
+        "name": "瑞丰光电",
+        "code": "300241",
+        "concepts": "Mini/Micro、电子纸",
+        "turnover": 79149648,
+        "seal_amount": 1011001391
+      },
+      {
+        "name": "渤海化学",
+        "code": "600800",
+        "concepts": "石油石化、环氧丙烷",
+        "turnover": 15775650,
+        "seal_amount": 629951723
+      },
+      {
+        "name": "聚飞光电",
+        "code": "300303",
+        "concepts": "Mini/Micro、通信",
+        "turnover": 323688224,
+        "seal_amount": 3103293068
+      },
+      {
+        "name": "龙腾光电",
+        "code": "688055",
+        "concepts": "Mini/Micro、面板",
+        "turnover": 8640505,
+        "seal_amount": 229378133
+      },
+      {
+        "name": "华映科技",
+        "code": "000536",
+        "concepts": "面板、芯片",
+        "turnover": 88979424,
+        "seal_amount": 424831105
+      },
+      {
+        "name": "深纺织Ａ",
+        "code": "000045",
+        "concepts": "面板、消费电子",
+        "turnover": 92984944,
+        "seal_amount": 198919788
+      },
+      {
+        "name": "亚世光电",
+        "code": "002952",
+        "concepts": "面板、端侧AI",
+        "turnover": 36888000,
+        "seal_amount": 362935358
+      },
+      {
+        "name": "艾比森",
+        "code": "300389",
+        "concepts": "Mini/Micro、面板",
+        "turnover": 122459120,
+        "seal_amount": 388553031
+      },
+      {
+        "name": "上海电气",
+        "code": "601727",
+        "concepts": "电气设备、可控核聚变",
+        "turnover": 354953760,
+        "seal_amount": 5110245134
+      },
+      {
+        "name": "三晖电气",
+        "code": "002857",
+        "concepts": "变压器、智能电网",
+        "turnover": 17657412,
+        "seal_amount": 221634574
+      },
+      {
+        "name": "行动教育",
+        "code": "605098",
+        "concepts": "教育、人工智能",
+        "turnover": 19884010,
+        "seal_amount": 153080703
+      },
+      {
+        "name": "神州信息",
+        "code": "000555",
+        "concepts": "量子科技、数字经济",
+        "turnover": 104886744,
+        "seal_amount": 689235368
+      },
+      {
+        "name": "世嘉科技",
+        "code": "002796",
+        "concepts": "光模块、通信",
+        "turnover": 45440716,
+        "seal_amount": 1132216371
+      },
+      {
+        "name": "欧菲光",
+        "code": "002456",
+        "concepts": "面板、华为概念",
+        "turnover": 121338976,
+        "seal_amount": 1492350186
+      },
+      {
+        "name": "天顺股份",
+        "code": "002800",
+        "concepts": "物流、一带一路",
+        "turnover": 88875032,
+        "seal_amount": 153185006
+      },
+      {
+        "name": "聚灿光电",
+        "code": "300708",
+        "concepts": "Mini/Micro、第三代半导体",
+        "turnover": 14775604,
+        "seal_amount": 3038486761
+      },
+      {
+        "name": "中国西电",
+        "code": "601179",
+        "concepts": "固态变压器、柔性直流",
+        "turnover": 222398976,
+        "seal_amount": 5718916740
+      },
+      {
+        "name": "美迪凯",
+        "code": "688079",
+        "concepts": "Mini/Micro、端侧AI",
+        "turnover": 39463964,
+        "seal_amount": 298201260
+      },
+      {
+        "name": "沃顿科技",
+        "code": "000920",
+        "concepts": "化工、盐湖提锂",
+        "turnover": 143604304,
+        "seal_amount": 171727824
+      },
+      {
+        "name": "华银电力",
+        "code": "600744",
+        "concepts": "绿色电力、电力",
+        "turnover": 154540000,
+        "seal_amount": 2765040718
+      },
+      {
+        "name": "百利电气",
+        "code": "600468",
+        "concepts": "电气设备、超导概念",
+        "turnover": 115139000,
+        "seal_amount": 1065176918
+      },
+      {
+        "name": "茂业商业",
+        "code": "600828",
+        "concepts": "零售、新零售",
+        "turnover": 130575008,
+        "seal_amount": 416527155
+      },
+      {
+        "name": "岩山科技",
+        "code": "002195",
+        "concepts": "脑机接口、AI应用",
+        "turnover": 227423632,
+        "seal_amount": 8092558590
+      },
+      {
+        "name": "日发精机",
+        "code": "002520",
+        "concepts": "机器人概念、工业母机",
+        "turnover": 113127040,
+        "seal_amount": 346437018
+      },
+      {
+        "name": "中超控股",
+        "code": "002471",
+        "concepts": "电气设备、柔性直流",
+        "turnover": 94562824,
+        "seal_amount": 2010483367
+      },
+      {
+        "name": "方大炭素",
+        "code": "600516",
+        "concepts": "石墨电极、核电",
+        "turnover": 20938586,
+        "seal_amount": 2873641686
+      },
+      {
+        "name": "亚威股份",
+        "code": "002559",
+        "concepts": "面板、OLED",
+        "turnover": 80357000,
+        "seal_amount": 382831410
+      },
+      {
+        "name": "金煤科技",
+        "code": "600844",
+        "concepts": "煤化工、氢能源",
+        "turnover": 36656948,
+        "seal_amount": 272416506
+      },
+      {
+        "name": "永吉股份",
+        "code": "603058",
+        "concepts": "半导体设备、大麻",
+        "turnover": 42371412,
+        "seal_amount": 214726889
+      },
+      {
+        "name": "雄韬股份",
+        "code": "002733",
+        "concepts": "氢能源、氢燃料电池",
+        "turnover": 100067992,
+        "seal_amount": 694386396
+      },
+      {
+        "name": "宇新股份",
+        "code": "002986",
+        "concepts": "石油石化、化工",
+        "turnover": 61482660,
+        "seal_amount": 443004343
+      },
+      {
+        "name": "奥士康",
+        "code": "002913",
+        "concepts": "印制电路板、算力",
+        "turnover": 75470992,
+        "seal_amount": 455376517
+      },
+      {
+        "name": "汇绿生态",
+        "code": "001267",
+        "concepts": "光模块、通信",
+        "turnover": 87067664,
+        "seal_amount": 2964627721
+      },
+      {
+        "name": "必得科技",
+        "code": "605298",
+        "concepts": "高铁、轨道交通",
+        "turnover": 50353480,
+        "seal_amount": 195717260
+      },
+      {
+        "name": "泰豪科技",
+        "code": "600590",
+        "concepts": "柴油发电机、电源",
+        "turnover": 92628072,
+        "seal_amount": 977097718
+      },
+      {
+        "name": "美利云",
+        "code": "000815",
+        "concepts": "算力租赁、算力",
+        "turnover": 28513640,
+        "seal_amount": 1551498250
+      },
+      {
+        "name": "铜牛信息",
+        "code": "300895",
+        "concepts": "算力租赁、算力",
+        "turnover": 21070004,
+        "seal_amount": 1268356604
+      },
+      {
+        "name": "杰克科技",
+        "code": "603337",
+        "concepts": "机器人概念、新型工业化",
+        "turnover": 93492936,
+        "seal_amount": 240691603
+      },
+      {
+        "name": "振华股份",
+        "code": "603067",
+        "concepts": "SOFC电池、钒电池",
+        "turnover": 47828648,
+        "seal_amount": 1543580643
+      },
+      {
+        "name": "海新能科",
+        "code": "300072",
+        "concepts": "生物质能、环保",
+        "turnover": 26708994,
+        "seal_amount": 1567438109
+      },
+      {
+        "name": "奥康国际",
+        "code": "603001",
+        "concepts": "服装家纺、股权转让",
+        "turnover": 64344068,
+        "seal_amount": 105899255
+      },
+      {
+        "name": "恒逸石化",
+        "code": "000703",
+        "concepts": "石油石化、光伏",
+        "turnover": 391391,
+        "seal_amount": 1078755003
+      },
+      {
+        "name": "星环科技",
+        "code": "688031",
+        "concepts": "人工智能、AI应用",
+        "turnover": 58391292,
+        "seal_amount": 2668698964
+      }
+    ],
+    "2": [
+      {
+        "name": "顺钠股份",
+        "code": "000533",
+        "concepts": "变压器、智能电网",
+        "turnover": 432341824,
+        "seal_amount": 108091021
+      },
+      {
+        "name": "智能自控",
+        "code": "002877",
+        "concepts": "人工智能、工业互联网",
+        "turnover": 102151992,
+        "seal_amount": 399596728
+      },
+      {
+        "name": "王力安防",
+        "code": "605268",
+        "concepts": "装修家具、地产链",
+        "turnover": 449330592,
+        "seal_amount": 47215579
+      },
+      {
+        "name": "卓郎智能",
+        "code": "600545",
+        "concepts": "人工智能、一带一路",
+        "turnover": 167963680,
+        "seal_amount": 70719586
+      },
+      {
+        "name": "汉缆股份",
+        "code": "002498",
+        "concepts": "电气设备、海缆",
+        "turnover": 487998592,
+        "seal_amount": 575891955
+      },
+      {
+        "name": "积成电子",
+        "code": "002339",
+        "concepts": "智能电网、充电桩",
+        "turnover": 79503072,
+        "seal_amount": 1496740229
+      },
+      {
+        "name": "通光线缆",
+        "code": "300265",
+        "concepts": "电气设备、通信",
+        "turnover": 37210436,
+        "seal_amount": 3280419970
+      }
+    ],
+    "max_board": 2
+  },
+  "stocks": {
+    "limit_up": [
+      {
+        "name": "兆驰股份",
+        "code": "002429",
+        "sector": "面板",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "Mini/Micro、氮化镓"
+      },
+      {
+        "name": "华灿光电",
+        "code": "300323",
+        "sector": "面板",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "Mini/Micro、面板"
+      },
+      {
+        "name": "国星光电",
+        "code": "002449",
+        "sector": "面板",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "Mini/Micro、氮化镓"
+      },
+      {
+        "name": "三安光电",
+        "code": "600703",
+        "sector": "面板",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "Mini/Micro、氮化镓"
+      },
+      {
+        "name": "冠捷科技",
+        "code": "000727",
+        "sector": "面板",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "Mini/Micro、面板"
+      },
+      {
+        "name": "芯瑞达",
+        "code": "002983",
+        "sector": "面板",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "Mini/Micro、面板"
+      },
+      {
+        "name": "奥拓电子",
+        "code": "002587",
+        "sector": "面板",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "Mini/Micro、面板"
+      },
+      {
+        "name": "雷曼光电",
+        "code": "300162",
+        "sector": "面板",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "Mini/Micro、玻璃基板"
+      },
+      {
+        "name": "沃格光电",
+        "code": "603773",
+        "sector": "面板",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "Mini/Micro、玻璃基板"
+      },
+      {
+        "name": "联建光电",
+        "code": "300269",
+        "sector": "面板",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "Mini/Micro、面板"
+      },
+      {
+        "name": "同兴达",
+        "code": "002845",
+        "sector": "面板",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "Mini/Micro、玻璃基板"
+      },
+      {
+        "name": "华塑控股",
+        "code": "000509",
+        "sector": "面板",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "面板、工业母机"
+      },
+      {
+        "name": "瑞丰光电",
+        "code": "300241",
+        "sector": "面板",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "Mini/Micro、电子纸"
+      },
+      {
+        "name": "聚飞光电",
+        "code": "300303",
+        "sector": "面板",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "Mini/Micro、LED"
+      },
+      {
+        "name": "龙腾光电",
+        "code": "688055",
+        "sector": "面板",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "Mini/Micro、面板"
+      },
+      {
+        "name": "华映科技",
+        "code": "000536",
+        "sector": "面板",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "玻璃基板、面板"
+      },
+      {
+        "name": "深纺织Ａ",
+        "code": "000045",
+        "sector": "面板",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "面板、OLED"
+      },
+      {
+        "name": "亚世光电",
+        "code": "002952",
+        "sector": "面板",
+        "consecutive": 3,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "电子纸、面板"
+      },
+      {
+        "name": "艾比森",
+        "code": "300389",
+        "sector": "面板",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "Mini/Micro、LED"
+      },
+      {
+        "name": "欧菲光",
+        "code": "002456",
+        "sector": "面板",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "面板、光学镜头"
+      },
+      {
+        "name": "聚灿光电",
+        "code": "300708",
+        "sector": "面板",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "Mini/Micro、氮化镓"
+      },
+      {
+        "name": "美迪凯  ",
+        "code": "688079",
+        "sector": "面板",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "Mini/Micro、玻璃基板"
+      },
+      {
+        "name": "亚威股份",
+        "code": "002559",
+        "sector": "面板",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "面板、OLED"
+      },
+      {
+        "name": "顺钠股份",
+        "code": "000533",
+        "sector": "智能电网",
+        "consecutive": 2,
+        "first_time": "",
+        "turnover": 2,
+        "industry": "变压器、电气设备"
+      },
+      {
+        "name": "汉缆股份",
+        "code": "002498",
+        "sector": "智能电网",
+        "consecutive": 2,
+        "first_time": "",
+        "turnover": 2,
+        "industry": "海缆、柔性直流"
+      },
+      {
+        "name": "积成电子",
+        "code": "002339",
+        "sector": "智能电网",
+        "consecutive": 2,
+        "first_time": "",
+        "turnover": 2,
+        "industry": "特高压、电气设备"
+      },
+      {
+        "name": "通光线缆",
+        "code": "300265",
+        "sector": "智能电网",
+        "consecutive": 2,
+        "first_time": "",
+        "turnover": 2,
+        "industry": "海缆、特高压"
+      },
+      {
+        "name": "上海电气",
+        "code": "601727",
+        "sector": "智能电网",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "风电整机厂商、火电灵活改造"
+      },
+      {
+        "name": "三晖电气",
+        "code": "002857",
+        "sector": "智能电网",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "变压器、电气设备"
+      },
+      {
+        "name": "中国西电",
+        "code": "601179",
+        "sector": "智能电网",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "柔性直流、固态变压器"
+      },
+      {
+        "name": "百利电气",
+        "code": "600468",
+        "sector": "智能电网",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "蓝宝石、电气设备"
+      },
+      {
+        "name": "中超控股",
+        "code": "002471",
+        "sector": "智能电网",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "氮化镓、柔性直流"
+      },
+      {
+        "name": "石英股份",
+        "code": "603688",
+        "sector": "通信",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "非金属材料、电子布"
+      },
+      {
+        "name": "世嘉科技",
+        "code": "002796",
+        "sector": "通信",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "半导体设备、电梯概念"
+      },
+      {
+        "name": "奥士康",
+        "code": "002913",
+        "sector": "通信",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "汽车电子、消费电子"
+      },
+      {
+        "name": "汇绿生态",
+        "code": "001267",
+        "sector": "通信",
+        "consecutive": 4,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "园林、光模块"
+      },
+      {
+        "name": "智能自控",
+        "code": "002877",
+        "sector": "人工智能",
+        "consecutive": 2,
+        "first_time": "",
+        "turnover": 2,
+        "industry": "工业互联网、新型工业化"
+      },
+      {
+        "name": "卓郎智能",
+        "code": "600545",
+        "sector": "人工智能",
+        "consecutive": 2,
+        "first_time": "",
+        "turnover": 2,
+        "industry": "工业4.0、华为概念"
+      },
+      {
+        "name": "行动教育",
+        "code": "605098",
+        "sector": "人工智能",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "DeepSeek、年报预增"
+      },
+      {
+        "name": "星环科技",
+        "code": "688031",
+        "sector": "人工智能",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "MLOps、数据安全"
+      },
+      {
+        "name": "奥瑞德  ",
+        "code": "600666",
+        "sector": "算力",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "消费电子、东数西算"
+      },
+      {
+        "name": "美利云",
+        "code": "000815",
+        "sector": "算力",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "AI PIN、智能穿戴"
+      },
+      {
+        "name": "铜牛信息",
+        "code": "300895",
+        "sector": "算力",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "量子科技、摩尔线程概念"
+      },
+      {
+        "name": "渤海化学",
+        "code": "600800",
+        "sector": "石油石化",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "芯片、天津自贸区"
+      },
+      {
+        "name": "宇新股份",
+        "code": "002986",
+        "sector": "石油石化",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "超跌、湖南"
+      },
+      {
+        "name": "恒逸石化",
+        "code": "000703",
+        "sector": "石油石化",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "化纤、光伏"
+      },
+      {
+        "name": "日发精机",
+        "code": "002520",
+        "sector": "新型工业化",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "滚珠丝杠、工业母机"
+      },
+      {
+        "name": "杰克科技",
+        "code": "603337",
+        "sector": "新型工业化",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "工业母机、C2M"
+      },
+      {
+        "name": "沃顿科技",
+        "code": "000920",
+        "sector": "化工",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "芯片、超跌"
+      },
+      {
+        "name": "金煤科技",
+        "code": "600844",
+        "sector": "化工",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "再融资、氢能源"
+      },
+      {
+        "name": "东方电气",
+        "code": "600875",
+        "sector": "燃气轮机",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "风电整机厂商、火电灵活改造"
+      },
+      {
+        "name": "泰豪科技",
+        "code": "600590",
+        "sector": "发电机",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "电气设备、柴油发电机"
+      },
+      {
+        "name": "王力安防",
+        "code": "605268",
+        "sector": "其他",
+        "consecutive": 2,
+        "first_time": "",
+        "turnover": 2,
+        "industry": "安防、华为概念"
+      },
+      {
+        "name": "安妮股份",
+        "code": "002235",
+        "sector": "其他",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "数据确权、网络安全"
+      },
+      {
+        "name": "兴民智通",
+        "code": "002355",
+        "sector": "其他",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "电子后视镜、eSIM"
+      },
+      {
+        "name": "泰坦股份",
+        "code": "003036",
+        "sector": "其他",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "新型工业化、机器人概念"
+      },
+      {
+        "name": "神州信息",
+        "code": "000555",
+        "sector": "其他",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "量子科技、VPN"
+      },
+      {
+        "name": "天顺股份",
+        "code": "002800",
+        "sector": "其他",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "外贸、物流"
+      },
+      {
+        "name": "华银电力",
+        "code": "600744",
+        "sector": "其他",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "虚拟电厂、智能电网"
+      },
+      {
+        "name": "茂业商业",
+        "code": "600828",
+        "sector": "其他",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "信托概念、低价股"
+      },
+      {
+        "name": "岩山科技",
+        "code": "002195",
+        "sector": "其他",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "端侧AI、数字货币"
+      },
+      {
+        "name": "方大炭素",
+        "code": "600516",
+        "sector": "其他",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "可控核聚变、核电"
+      },
+      {
+        "name": "永吉股份",
+        "code": "603058",
+        "sector": "其他",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "半导体设备、第三代半导体"
+      },
+      {
+        "name": "雄韬股份",
+        "code": "002733",
+        "sector": "其他",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "电气设备、智能电网"
+      },
+      {
+        "name": "必得科技",
+        "code": "605298",
+        "sector": "其他",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "轨道交通、江苏省"
+      },
+      {
+        "name": "振华股份",
+        "code": "603067",
+        "sector": "其他",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "钒电池、储能"
+      },
+      {
+        "name": "海新能科",
+        "code": "300072",
+        "sector": "其他",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "生物质能、氢能源"
+      },
+      {
+        "name": "奥康国际",
+        "code": "603001",
+        "sector": "其他",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "C2M、股权转让"
+      },
+      {
+        "name": "ST京蓝",
+        "code": "000711",
+        "sector": "ST板块",
+        "consecutive": 7,
+        "first_time": "",
+        "turnover": 7,
+        "industry": "芯片、元宇宙"
+      },
+      {
+        "name": "*ST松发 ",
+        "code": "603268",
+        "sector": "ST板块",
+        "consecutive": 12,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "海工装备、广东省"
+      },
+      {
+        "name": "*ST四通 ",
+        "code": "603838",
+        "sector": "ST板块",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "广东省、股权转让"
+      },
+      {
+        "name": "ST八菱",
+        "code": "002592",
+        "sector": "ST板块",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "长安汽车概念、华为汽车"
+      },
+      {
+        "name": "*ST绿康",
+        "code": "002868",
+        "sector": "ST板块",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "股权转让、ST板块"
+      },
+      {
+        "name": "*ST原尚 ",
+        "code": "603813",
+        "sector": "ST板块",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "氢燃料电池、广东省"
+      },
+      {
+        "name": "*ST景峰",
+        "code": "000908",
+        "sector": "ST板块",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "超跌、股权转让"
+      },
+      {
+        "name": "*ST东易",
+        "code": "002713",
+        "sector": "ST板块",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "智能家居、消费电子"
+      },
+      {
+        "name": "*ST步森",
+        "code": "002569",
+        "sector": "ST板块",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "ST板块、业绩增长"
+      },
+      {
+        "name": "*ST华闻",
+        "code": "000793",
+        "sector": "ST板块",
+        "consecutive": 1,
+        "first_time": "",
+        "turnover": 1,
+        "industry": "VR/AR/MR、超高清视频"
+      }
+    ]
+  }
+}

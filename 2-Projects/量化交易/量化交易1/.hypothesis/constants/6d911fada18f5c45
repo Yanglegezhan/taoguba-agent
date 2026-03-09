@@ -1,0 +1,4 @@
+# file: D:\pythonProject2\量化交易1\Ashare复盘multi-agents\next_day_expectation_agent\src\data_sources\akshare_client.py
+# hypothesis_version: 6.150.2
+
+['-', '000001', 'A', 'A50', 'HTTPS_PROXY', 'HTTP_PROXY', 'NVDA', 'daily', 'http', 'https', 'qfq', 'sina', '代码']

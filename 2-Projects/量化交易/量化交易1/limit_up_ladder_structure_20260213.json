@@ -1,0 +1,74 @@
+{
+  "date": "2026-02-13",
+  "is_realtime": false,
+  "ladder": {
+    "1": [
+      {
+        "stock_code": "000839",
+        "stock_name": "国安股份",
+        "consecutive_days": 1,
+        "tips": ""
+      },
+      {
+        "stock_code": "601890",
+        "stock_name": "亚星锚链",
+        "consecutive_days": 1,
+        "tips": ""
+      },
+      {
+        "stock_code": "603331",
+        "stock_name": "百达精工",
+        "consecutive_days": 1,
+        "tips": ""
+      }
+    ],
+    "2": [
+      {
+        "stock_code": "002498",
+        "stock_name": "汉缆股份",
+        "consecutive_days": 2,
+        "tips": ""
+      }
+    ],
+    "3": [
+      {
+        "stock_code": "605033",
+        "stock_name": "美邦股份",
+        "consecutive_days": 3,
+        "tips": ""
+      },
+      {
+        "stock_code": "001896",
+        "stock_name": "豫能控股",
+        "consecutive_days": 3,
+        "tips": ""
+      },
+      {
+        "stock_code": "002951",
+        "stock_name": "金时科技",
+        "consecutive_days": 3,
+        "tips": ""
+      }
+    ],
+    "5": [
+      {
+        "stock_code": "603533",
+        "stock_name": "掌阅科技",
+        "consecutive_days": 5,
+        "tips": ""
+      }
+    ]
+  },
+  "broken_stocks": [],
+  "height_marks": [],
+  "statistics": {
+    "total_limit_up": 8,
+    "max_consecutive": 5,
+    "ladder_distribution": {
+      "1": 3,
+      "2": 1,
+      "3": 3,
+      "5": 1
+    }
+  }
+}

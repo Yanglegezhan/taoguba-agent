@@ -1,0 +1,4 @@
+﻿code,error
+159826,"RuntimeError(""Failed to download ETF 159826 via AkShare after 5 attempts: RuntimeError('Sina returned empty dataframe')"")"
+159894,"RuntimeError(""Failed to download ETF 159894 via AkShare after 5 attempts: RuntimeError('Sina returned empty dataframe')"")"
+159746,"RuntimeError(""Failed to download ETF 159746 via AkShare after 5 attempts: RuntimeError('Sina returned empty dataframe')"")"

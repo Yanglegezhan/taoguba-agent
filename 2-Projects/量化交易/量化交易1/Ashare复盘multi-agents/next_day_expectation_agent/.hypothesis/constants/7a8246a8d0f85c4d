@@ -1,0 +1,4 @@
+# file: D:\pythonProject2\量化交易1\Ashare复盘multi-agents\next_day_expectation_agent\src\common\config.py
+# hypothesis_version: 6.150.2
+
+[0.7, 0.95, 2048, './data', './data/logs', './data/stage1_output', './data/stage2_output', './data/stage3_output', '07:00', '09:15', '09:25', '100 MB', '15:30', '30 days', 'INFO', 'gemini-2.0-flash-exp', 'r', 'utf-8', 'w']

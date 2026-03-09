@@ -1,0 +1,74 @@
+# Stock Replay Agent 配置文件
+
+# LLM配置
+llm:
+  # 模型选择: glm-4, glm-4-plus, deepseek-chat
+  model: "glm-4"
+  # API密钥（建议使用环境变量 ZHIPUAI_API_KEY）
+  api_key: ${ZHIPUAI_API_KEY}
+  # 温度参数
+  temperature: 0.7
+  # 最大token数
+  max_tokens: 2000
+  # 超时时间（秒）
+  timeout: 60
+
+# 数据源配置
+data_source:
+  # Kaipanla爬虫配置
+  kaipanla:
+    base_url: "https://kaipanla.com"
+    # 请求延迟（秒），避免被限流
+    request_delay: 0.5
+    # 最大重试次数
+    max_retries: 3
+    # 缓存启用
+    enable_cache: true
+    # 缓存有效期（秒）
+    cache_ttl: 3600
+
+# 输出配置
+output:
+  # 输出目录
+  reports_dir: "output/reports"
+  data_dir: "output/data"
+  # 默认输出格式: markdown, json, all
+  default_format: "all"
+  # 日期格式
+  date_format: "%Y-%m-%d"
+
+# 分析配置
+analysis:
+  # 连板分析配置
+  consecutive_board:
+    # 是否检测特殊动作
+    detect_special_actions: true
+    # 是否进行同题材对比
+    sector_comparison: true
+    # 连板高度阈值
+    min_consecutive_days: 2
+
+  # 趋势分析配置
+  trend_stock:
+    # 趋势周期（天）
+    trend_period: 20
+    # 突破阈值
+    breakout_threshold: 0.03
+
+  # Critic配置
+  critic:
+    # 是否启用批评
+    enabled: true
+    # 严格程度: low, medium, high
+    strictness: "medium"
+
+  # 综合配置
+  synthesis:
+    # 是否读取外部报告
+    read_external_reports: true
+    # 外部报告路径
+    external_reports:
+      - "../index_replay_agent/output/reports"
+      - "../sentiment_replay_agent/output/sentiment/reports"
+      - "../Theme_repay_agent/output/reports"
+      - "../dark_line_analyse/output/reports"

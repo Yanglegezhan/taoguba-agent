@@ -1,0 +1,4 @@
+# file: D:\pythonProject2\量化交易1\Ashare复盘multi-agents\sentiment_replay_agent\src\data\akshare_sentiment_source.py
+# hypothesis_version: 6.150.2
+
+[-1.5, -1.0, 0.0, 0.05, 0.3, 0.5, 0.95, 100, 2500, 5000, '%Y%m%d', 'close', 'date', 'down_count (负值)', 'limit_up_count (负值)', 'sh000001', 'trade_date', 'up_count (负值)', '代码', '无法获取交易日历', '昨收', '最新价', '最高', '未能获取任何市场数据', '涨跌幅', '连板数']

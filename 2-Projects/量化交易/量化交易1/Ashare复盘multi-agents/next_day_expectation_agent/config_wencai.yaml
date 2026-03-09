@@ -1,0 +1,19 @@
+# Stage1 Agent 配置 - 使用问财获取热门股
+
+# 基因池构建器配置
+gene_pool_builder:
+  # 是否优先使用问财获取热门股（推荐：True，速度快）
+  use_wencai: true
+  
+  # 当 kaipanla 失败时是否回退到问财（推荐：True，提高稳定性）
+  wencai_fallback: true
+
+# 技术指标计算器配置
+technical_calculator:
+  # 历史数据回溯天数
+  lookback_days: 150  # 约5个月
+
+# 日志配置
+logging:
+  level: INFO  # DEBUG, INFO, WARNING, ERROR
+  format: "%(asctime)s | %(levelname)-8s | %(name)s:%(funcName)s:%(lineno)d - %(message)s"

@@ -1,0 +1,203 @@
+# ============================================================
+# Anthropic 长时间运行智能体编排/调度框架配置
+# 基于 "Building Effective Agents" 研究文章
+# ============================================================
+
+# -----------------------------------------------------------
+# 1. 工作流模式配置 (Workflow Patterns)
+# -----------------------------------------------------------
+workflow_patterns:
+  # 提示链 (Prompt Chaining) - 适用于可分解为固定子任务的场景
+  prompt_chaining:
+    enabled: true
+    use_case: "每个子任务都使用前一个子任务的输出作为输入"
+    trade_off: "延迟换取更高的准确性"
+    gating_threshold: 0.8  # 通过阈值
+
+  # 路由 (Routing) - 分类处理不同类型输入
+  routing:
+    enabled: true
+    use_case: "为不同类型的输入选择专门的处理路径"
+    implementation: "分类步骤检测输入类型并路由到专业提示"
+
+  # 并行化 (Parallelization) - 同时执行多个子任务
+  parallelization:
+    enabled: true
+    use_case: "将任务分解为可以并行执行的独立子任务"
+    max_workers: 10  # 最大并行工作线程
+    timeout_seconds: 300
+
+  # 编排器-工作者 (Orchestrator-Workers) - 动态分解任务
+  orchestrator_workers:
+    enabled: true
+    use_case: "中心编排器动态分解任务并分配给工作者"
+    adaptive: true  # 工作者可告知编排器需要额外子任务
+
+  # 评估器-优化器 (Evaluator-Optimizer) - 迭代优化
+  evaluator_optimizer:
+    enabled: true
+    use_case: "循环中一个提示生成响应，另一个评估并提供反馈"
+    max_iterations: 5
+    improvement_threshold: 0.05
+
+# -----------------------------------------------------------
+# 2. 自主智能体配置 (Autonomous Agents)
+# -----------------------------------------------------------
+autonomous_agents:
+  # 核心设计原则
+  design_principles:
+    - "自主智能体在循环中根据环境反馈决定行动"
+    - "只将智能体用于明确需要灵活性和决策的场景"
+    - "当清晰步骤可预测时，优先使用工作流模式"
+
+  # 工具调用配置
+  tool_calling:
+    loop_type: "REPL风格"  # 读取、执行、打印、循环
+    planning_enabled: true
+    self_reflection_enabled: true
+    max_iterations: 100
+    error_recovery: true
+
+  # 规划配置
+  planning:
+    enabled: true
+    approach: "自然语言编写计划"
+    re_planning_trigger: "环境反馈表明计划失败"
+    sub_agent_enabled: false  # 子智能体可能过于复杂
+
+  # 记忆系统
+  memory:
+    short_term: "当前对话上下文"
+    long_term: "文件系统或数据库持久化"
+    vector_store_enabled: true
+
+  # 环境交互
+  environment:
+    computer_use_enabled: true
+    browser_automation_enabled: true
+    file_system_access: "sandboxed"
+
+  # 防护栏 (Guardrails)
+  guardrails:
+    - type: "用户确认"
+      trigger: "破坏性操作"
+      action: "请求明确批准"
+    - type: "检查点"
+      trigger: "工具调用"
+      action: "输出状态快照"
+    - type: "上下文窗口"
+      trigger: "接近token限制"
+      action: "智能总结历史"
+
+# -----------------------------------------------------------
+# 3. 调度器配置 (Scheduler)
+# -----------------------------------------------------------
+scheduler:
+  # 调度策略
+  strategy: "adaptive"  # adaptive, fifo, priority, deadline
+
+  # 自适应调度参数
+  adaptive:
+    load_threshold: 0.8
+    scale_up_trigger: "队列长度 > 10"
+    scale_down_trigger: "空闲时间 > 5分钟"
+
+  # 优先级队列
+  priority_levels:
+    - name: "critical"
+      weight: 10
+      preempt: true
+    - name: "high"
+      weight: 5
+      preempt: false
+    - name: "normal"
+      weight: 1
+      preempt: false
+    - name: "low"
+      weight: 0.5
+      preempt: false
+
+  # 资源限制
+  resource_limits:
+    max_concurrent_tasks: 20
+    max_memory_per_task: "2GB"
+    max_cpu_per_task: "2 cores"
+    timeout_default: "5 minutes"
+
+  # 重试机制
+  retry_policy:
+    max_retries: 3
+    backoff_strategy: "exponential"  # fixed, exponential, linear
+    initial_delay: "1s"
+    max_delay: "1m"
+
+# -----------------------------------------------------------
+# 4. 可观测性配置 (Observability)
+# -----------------------------------------------------------
+observability:
+  # 日志
+  logging:
+    level: "INFO"  # DEBUG, INFO, WARN, ERROR
+    format: "structured"  # text, structured
+    output: "stdout"  # stdout, file, both
+    rotation: "daily"
+
+  # 指标
+  metrics:
+    enabled: true
+    type: "prometheus"
+    port: 9090
+    path: "/metrics"
+    default_metrics:
+      - "task_duration_seconds"
+      - "task_total"
+      - "queue_length"
+      - "worker_busy_ratio"
+
+  # 追踪
+  tracing:
+    enabled: true
+    type: "opentelemetry"
+    sampler: "parentbased_always_on"
+    export_interval: "1s"
+
+  # 健康检查
+  health_checks:
+    enabled: true
+    path: "/health"
+    checks:
+      - "database"
+      - "queue"
+      - "worker_pool"
+
+# -----------------------------------------------------------
+# 5. 部署配置 (Deployment)
+# -----------------------------------------------------------
+deployment:
+  # 容器化
+  container:
+    base_image: "python:3.11-slim"
+    user: "nonroot"
+    security_scanning: true
+
+  # 编排
+  orchestration:
+    type: "kubernetes"
+    namespace: "agent-system"
+    replicas: 3
+    hpa:
+      min_replicas: 2
+      max_replicas: 10
+      target_cpu: 70
+
+  # 服务网格
+  service_mesh:
+    enabled: true
+    type: "istio"
+    mtls: true
+
+  # 密钥管理
+  secrets:
+    type: "vault"
+    rotation: true
+    encryption: "aes-256-gcm"

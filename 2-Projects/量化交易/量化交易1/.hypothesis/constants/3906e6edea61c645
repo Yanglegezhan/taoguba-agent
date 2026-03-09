@@ -1,0 +1,4 @@
+# file: D:\pythonProject2\量化交易1\Ashare复盘multi-agents\next_day_expectation_agent\src\storage\database_manager.py
+# hypothesis_version: 6.150.2
+
+[100, 1024, ' AND category = ?', ' AND date <= ?', ' AND date = ?', ' AND date >= ?', ' AND pool_type = ?', ' AND stock_code = ?', 'Database vacuumed', 'VACUUM', 'additional_pool', 'auction_monitoring', 'baseline_expectation', 'continuous_limit_up', 'count', 'date_range', 'db_path', 'db_size_mb', 'failed_limit_up', 'gene_pool', 'gene_pool_history', 'max', 'max_date', 'min', 'min_date', 'recognition_stocks', 'recommendation', 'record_count', 'tables', 'technical_data', 'total', 'trend_stocks', 'with_performance']

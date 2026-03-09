@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A股复盘报告 20260303</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 100%;
+            margin: 0;
+            padding: 16px;
+            background-color: #fff;
+        }
+        .header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #e74c3c;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 0 0 10px 0;
+            font-weight: bold;
+        }
+        .header .meta {
+            color: #7f8c8d;
+            font-size: 13px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        .subtitle-note {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 12px;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #c0392b;
+            font-size: 18px;
+            border-left: 4px solid #e74c3c;
+            padding-left: 12px;
+            margin: 25px 0 15px 0;
+            font-weight: bold;
+        }
+        h3 {
+            color: #2980b9;
+            font-size: 15px;
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+        }
+        h4 {
+            color: #8e44ad;
+            font-size: 14px;
+            margin: 15px 0 8px 0;
+            font-weight: bold;
+        }
+        p {
+            margin: 10px 0;
+            text-align: justify;
+        }
+        ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        li {
+            margin: 8px 0;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe6e6 100%);
+            border: 1px solid #feb2b2;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border: 1px solid #fbbf24;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .success-box {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border: 1px solid #86efac;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .info-box {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border: 1px solid #93c5fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+        th {
+            background-color: #c0392b;
+            color: white;
+            padding: 12px 8px;
+            text-align: left;
+            font-weight: bold;
+        }
+        td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        .tag-red {
+            background-color: #fee2e2;
+            color: #dc2626;
+        }
+        .tag-green {
+            background-color: #d1fae5;
+            color: #059669;
+        }
+        .tag-blue {
+            background-color: #dbeafe;
+            color: #2563eb;
+        }
+        .tag-yellow {
+            background-color: #fef3c7;
+            color: #d97706;
+        }
+        .tag-purple {
+            background-color: #f3e8ff;
+            color: #7c3aed;
+        }
+        .divider {
+            border: none;
+            border-top: 1px dashed #cbd5e1;
+            margin: 20px 0;
+        }
+        .footer {
+            text-align: center;
+            color: #64748b;
+            font-size: 12px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+        .quote {
+            border-left: 4px solid #e74c3c;
+            background-color: #fef2f2;
+            padding: 12px 15px;
+            margin: 15px 0;
+            font-style: italic;
+            color: #7f1d1d;
+        }
+        strong {
+            color: #c0392b;
+        }
+        .data-highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .positive {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .negative {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .emoji {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📊 A股复盘报告 20260303</h1>
+        <div class="meta">生成时间：2026-03-03 15:17:05</div>
+    </div>
+
+    <div class="subtitle">master学堂纸上谈兵小能手</div>
+
+    <hr class="divider">
+
+    <h2>一、大盘总结</h2>
+    
+    <h3>指数走势</h3>
+    <p>中证全指连续两日收跌，3月2日下跌0.36%，3月3日大幅低走<span class="data-highlight">-2.94%</span>，单日跌幅接近3%，形成明显破位结构。指数开盘即震荡/低开，全天趋势为"低走"，呈现空头主导格局。</p>
+
+    <h3>量能变化</h3>
+    <p>市场成交额从3.02万亿小幅放大至<span class="data-highlight">3.13万亿</span>，放量杀跌特征显著。在指数大幅回调背景下，量能不缩反增，说明资金分歧加剧，抛压集中释放，属于典型恐慌性出货或机构调仓行为。</p>
+
+    <h3>市场情绪</h3>
+    <p>情绪标签维持"<span class="data-highlight">谨慎</span>"，但实际已进入<span class="data-highlight">退潮初期向冰点过渡阶段</span>。上涨家数仅643家，下跌家数高达4807家，<span class="data-highlight">涨跌比不足1:7.5</span>，跌停股达82只（较前日21只激增近三倍），而涨停仅85家（前日94家），<span class="data-highlight">亏钱效应急剧扩散</span>。</p>
+
+    <div class="success-box">
+        <span class="emoji">✅</span> <strong>定性判断：当前处于情绪退潮期，轻指数重个股逻辑失效，系统性风险释放中，建议以防守为主。</strong>
+    </div>
+
+    <hr class="divider">
+
+    <h2>二、板块与主线分析</h2>
+
+    <h3>强势板块TOP5</h3>
+
+    <table>
+        <tr>
+            <th style="width:30%">板块</th>
+            <th style="width:20%">涨幅</th>
+            <th style="width:50%">龙头</th>
+        </tr>
+        <tr>
+            <td><strong>页岩气</strong></td>
+            <td class="positive">+5.98%</td>
+            <td>中寰股份</td>
+        </tr>
+        <tr>
+            <td><strong>可燃冰</strong></td>
+            <td class="positive">+5.64%</td>
+            <td>新锦动力</td>
+        </tr>
+        <tr>
+            <td><strong>天然气</strong></td>
+            <td class="positive">+4.29%</td>
+            <td>特瑞斯</td>
+        </tr>
+        <tr>
+            <td><strong>俄乌冲突概念</strong></td>
+            <td class="positive">+3.94%</td>
+            <td>天壕能源</td>
+        </tr>
+        <tr>
+            <td><strong>中韩自贸区</strong></td>
+            <td class="positive">+2.71%</td>
+            <td>华光源海</td>
+        </tr>
+    </table>
+
+    <h3>资金流向判断</h3>
+
+    <div class="success-box">
+        <span class="emoji">✅</span> <strong>明确资金流入板块：</strong>
+        <ul>
+            <li><strong>页岩气、可燃冰、天然气、俄乌冲突概念</strong>——四大板块涨幅均超3.9%，且涨停股高度集中，梯队完整，<span class="data-highlight">与涨停股分布高度对应</span>。</li>
+            <li>资金聚焦于"能源安全+地缘溢价"主线，油气开采、储运、服务全产业链爆发。</li>
+        </ul>
+    </div>
+
+    <div class="highlight-box">
+        <span class="emoji">❌</span> <strong>资金流出板块：</strong>
+        <ul>
+            <li>除上述能源相关外，其余板块普遍大跌，尤其前期热门的AI应用（如DeepSeek）、消费电子、半导体等出现明显资金撤离迹象。</li>
+            <li>市场风格由科技成长切换至资源周期+地缘博弈。</li>
+        </ul>
+    </div>
+
+    <div class="info-box">
+        <span class="emoji">🔍</span> <strong>结论：资金正从高位题材股向低位能源资源类资产进行高低切，且具备持续性和板块效应。</strong>
+    </div>
+
+    <h3>主线题材确认（数据支撑）</h3>
+
+    <div class="success-box">
+        <span class="emoji">✔</span> <strong>主线：【油气能源+地缘冲突】</strong>
+        <ul>
+            <li><strong>高度龙</strong>：*ST新潮（3板，页岩气+俄乌）、亚盛集团（3板，农业但叠加土地流转+西部开发）</li>
+            <li><strong>中军阵容强大</strong>：中国石化、中国石油、中国海油、中远海能、招商轮船等<span class="data-highlight">中字头央企集体连板</span>，具备极强趋势引导作用</li>
+            <li><strong>首板梯队密集</strong>：国新能源、陕天然气、成都燃气、凯添燃气等十余只燃气股涨停</li>
+            <li><strong>涨停数量占比高</strong>：油气链（含页岩气、天然气、航运）相关涨停股超<span class="data-highlight">40只</span>，占总涨停数近半</li>
+            <li><strong>逻辑闭环清晰</strong>：国际油价因地缘紧张飙升 → 油气企业盈利预期改善 → 国内油服、运输、LNG企业直接受益</li>
+        </ul>
+    </div>
+
+    <div class="success-box">
+        <span class="emoji">✅</span> <strong>满足主线三大标准：有高度龙 + 有中军 + 有首板梯队 → 确认为当前唯一主线</strong>
+    </div>
+
+    <hr class="divider">
+
+    <h2>三、情绪周期判断（重点）</h2>
+
+    <h3>昨日高位股今日表现分析</h3>
+
+    <table>
+        <tr>
+            <th style="width:25%">股票</th>
+            <th style="width:20%">昨日板数</th>
+            <th style="width:25%">今日涨跌幅</th>
+            <th style="width:30%">状态</th>
+        </tr>
+        <tr>
+            <td>长源东谷</td>
+            <td>3板</td>
+            <td>+0.02%</td>
+            <td><span class="tag tag-yellow">断板</span></td>
+        </tr>
+        <tr>
+            <td>泰嘉股份</td>
+            <td>3板</td>
+            <td>+0.04%</td>
+            <td><span class="tag tag-yellow">断板</span></td>
+        </tr>
+        <tr>
+            <td>烽火通信</td>
+            <td>3板</td>
+            <td>-1.00%</td>
+            <td><span class="tag tag-yellow">断板</span></td>
+        </tr>
+        <tr>
+            <td>*ST松发</td>
+            <td>4板</td>
+            <td>0.00%</td>
+            <td><span class="tag tag-yellow">断板</span></td>
+        </tr>
+    </table>
+
+    <ul>
+        <li><strong>晋级率 = 0/4 = 0%</strong>，昨日所有3板及以上个股全部断板，无一晋级。</li>
+        <li><strong>无核按钮（未跌停）</strong>，但烽火通信微幅收绿，*ST松发平盘收盘，显示高位股虽未恐慌跳水，但完全失去承接。</li>
+        <li><strong>无卡位、无反包、无弱转强</strong>，高位梯队全面熄火。</li>
+    </ul>
+
+    <div class="highlight-box">
+        <span class="emoji">📉</span> <strong>情绪周期判定：退潮期中期，主升期彻底结束，进入"去杠杆+高低切"阶段。</strong>
+    </div>
+
+    <h3>资金是否执行高低切？</h3>
+
+    <div class="success-box">
+        <span class="emoji">✅</span> <strong>明确执行高低切：</strong>
+        <ul>
+            <li>昨日高标（长源东谷→低空经济、泰嘉股份→AI硬件、烽火通信→算力）全部来自前期热点，今日无人晋级；</li>
+            <li>而今日新主线【油气能源】多为低位启动，多数个股此前并无炒作基础，属典型"低位补涨"；</li>
+            <li>中字头权重集体涨停，亦是资金避险+确定性偏好体现。</li>
+        </ul>
+    </div>
+
+    <div class="success-box">
+        <span class="emoji">✅</span> <strong>资金风险偏好下降，转向低估值+高分红+事件驱动型品种。</strong>
+    </div>
+
+    <div class="warning-box">
+        <span class="emoji">📝</span> <strong>明日策略建议：</strong>
+        <br>
+        <span class="data-highlight">防守为主，控制仓位，避免追高连板股。</span>
+        <ul>
+            <li>关注主线延续性，但警惕高潮后分化；</li>
+            <li>观察是否有新题材尝试卡位；</li>
+            <li>不参与高位断板股反抽，谨防次日核按钮。</li>
+        </ul>
+    </div>
+
+    <hr class="divider">
+
+    <h2>四、主线与支线详细梳理</h2>
+
+    <h3><span class="emoji">🔥</span> 主线1：油气能源 + 地缘冲突（核心主线）</h3>
+    
+    <h4>高度龙：</h4>
+    <ul>
+        <li><strong>*ST新潮（600777.SH，3板）</strong>：美国页岩油资产+诉讼进展+ST摘帽预期，低价+弹性大</li>
+        <li><strong>亚盛集团（600108.SH，3板）</strong>：农业属性偏独立，但叠加西部开发+甘肃国资，受益区域资源主题扩散</li>
+    </ul>
+
+    <h4>中军（权重引领）：</h4>
+    <ul>
+        <li><strong>中国石化（600028.SH，2板）</strong></li>
+        <li><strong>中国石油（601857.SH，2板）</strong></li>
+        <li><strong>中国海油（600938.SH，2板）</strong></li>
+        <li><strong>中远海能（600026.SH，2板）</strong></li>
+        <li><strong>招商轮船（601872.SH，2板）</strong></li>
+    </ul>
+
+    <div class="info-box">
+        中军集体涨停，构成"中字头+能源+国企改革"共振，具备极强趋势稳定性与流动性支撑。
+    </div>
+
+    <h4>首板梯队（部分列举）：</h4>
+    <ul>
+        <li>国新能源（600617.SH）</li>
+        <li>陕天然气（002267.SZ）</li>
+        <li>成都燃气（603053.SH）</li>
+        <li>凯添燃气（920010.BJ）</li>
+        <li>宁波海运（600798.SH）</li>
+        <li>百川能源（600681.SH）</li>
+    </ul>
+
+    <h4>板块强度统计：</h4>
+    <ul>
+        <li>直接相关涨停股：<strong>页岩气（7只）+ 可燃冰（5只）+ 天然气（12只）+ 航运（6只）+ 油气服务（8只）≈ 38只</strong></li>
+        <li>连板率：2板及以上个股中，<strong>油气链占15/25 ≈ 60%</strong></li>
+        <li><span class="tag tag-green">✔ 完全符合主线定义</span></li>
+    </ul>
+
+    <h3><span class="emoji">⚠️</span> 支线1：航运物流</h3>
+    <ul>
+        <li>逻辑：地缘冲突推升VLCC运价，油运溢价显现</li>
+        <li>标的：中远海能、招商南油、宁波海运、锦江航运</li>
+        <li>特征：与主线高度重叠，可视作油气分支</li>
+    </ul>
+
+    <h3><span class="emoji">⚠️</span> 支线2：氢能源 / 充电桩</h3>
+    <ul>
+        <li>表现：多个燃气股叠加氢能源概念涨停（如佛燃能源、百川能源）</li>
+        <li>判断：属概念叠加助攻，非独立行情，依附于天然气主线</li>
+    </ul>
+
+    <h3><span class="emoji">⚠️</span> 支线3：AI眼镜 / DeepSeek概念</h3>
+    <ul>
+        <li>表现：华盛昌3板、科瑞技术首板，但板块整体弱势</li>
+        <li>判断：个别个股因并购或产品逻辑走强，但缺乏梯队支撑，<span class="data-highlight">已是强弩之末</span></li>
+    </ul>
+
+    <hr class="divider">
+
+    <h2>五、昨日高标PK分析</h2>
+
+    <h3>2进3晋级情况：</h3>
+    <p>昨日共有多只2板股，今日成功晋级3板的仅有：</p>
+    <ul>
+        <li><strong>亚盛集团（农业+土地流转）</strong></li>
+        <li><strong>华盛昌（AI眼镜+收购）</strong></li>
+        <li><strong>和顺石油（超快充+拟收购芯片）</strong></li>
+        <li><strong>*ST新潮（页岩气+ST）</strong></li>
+        <li><strong>水发燃气（燃气+氢能源）</strong></li>
+    </ul>
+
+    <div class="success-box">
+        <span class="emoji">✅</span> <strong>胜出者共同特征：</strong>
+        <ul>
+            <li>绑定当前主线（油气/能源）或具备强事件催化（拟收购）</li>
+            <li>属于低位启动，非前期高位题材</li>
+            <li>多为早盘快速封板，资金抢筹明显</li>
+        </ul>
+    </div>
+
+    <div class="highlight-box">
+        <span class="emoji">❌</span> <strong>失败者：</strong>
+        <ul>
+            <li>如泰永长征（充电桩）、铭普光磁（CPO）等未能晋级</li>
+            <li>原因：脱离主线，缺乏资金接力</li>
+        </ul>
+    </div>
+
+    <h3>1进2晋级情况：</h3>
+    <ul>
+        <li>今日首板共约50只，预计明日2进3成功率将低于20%</li>
+        <li><strong>胜出可能性高的特征：</strong>
+            <ul>
+                <li>属于主线内（如天然气、航运）</li>
+                <li>小市值+低价+国资背景</li>
+                <li>早盘封板、封单坚决（如胜利股份、国新能源）</li>
+            </ul>
+        </li>
+    </ul>
+
+    <hr class="divider">
+
+    <h2>六、首板个股逻辑总结（按题材分类）</h2>
+
+    <h3>【天然气/页岩气】</h3>
+    <ul>
+        <li><strong>通鼎互联</strong>：光纤+数据中心跨界燃气，想象空间打开</li>
+        <li><strong>百川能源</strong>：天然气+具身智能布局+高股息，双主线叠加</li>
+        <li><strong>国新能源</strong>：山西天然气管网龙头+国资整合预期</li>
+        <li><strong>佛燃能源</strong>：粤港澳大湾区燃气+氢能+储能一体化运营</li>
+        <li><strong>陕天然气</strong>：陕西区域垄断+管网升级+国资控股</li>
+        <li><strong>成都燃气</strong>：西南燃气运营+成都国资+氢能源布局</li>
+        <li><strong>凯添燃气</strong>：天然气+算力租赁+储气设施新基建</li>
+    </ul>
+
+    <h3>【航运/油运】</h3>
+    <ul>
+        <li><strong>宁波海运</strong>：干散货+电煤运输+浙江国资，受益运价上行</li>
+        <li><strong>锦江航运</strong>：中韩航线+国企改革+跨境电商物流需求增长</li>
+    </ul>
+
+    <h3>【油气服务/设备】</h3>
+    <ul>
+        <li><strong>胜利股份</strong>：天然气+PE管道+并购重组预期</li>
+        <li><strong>特瑞斯</strong>：天然气设备+中俄合作+回购增持再贷款</li>
+    </ul>
+
+    <h3>【其他】</h3>
+    <ul>
+        <li><strong>通鼎互联</strong>：光纤+数据中心+固态电池多元布局</li>
+        <li><strong>科瑞技术</strong>：AI眼镜+半导体设备+低空经济多重热点</li>
+        <li><strong>国晟科技</strong>：钙钛矿光伏+固态电池+储能EPC</li>
+        <li><strong>东方盛虹</strong>：石化+POE胶膜+光伏材料一体化</li>
+        <li><strong>华光源海</strong>：中韩自贸区+航运代理+跨境物流</li>
+    </ul>
+
+    <hr class="divider">
+
+    <h2>七、明日策略与风险提示</h2>
+
+    <h3><span class="emoji">✅</span> 机会方向</h3>
+    <ol>
+        <li><strong>主线延续机会</strong>：关注天然气、油服、航运板块的<span class="data-highlight">中军趋势股回踩低吸</span>（如中国海油、中远海能）</li>
+        <li><strong>低位补涨挖掘</strong>：尚未启动的区域性燃气公司、小型油服企业</li>
+        <li><strong>首板套利模式</strong>：聚焦早盘快速封板、市值<50亿、叠加"一带一路+国企改革"的能源股</li>
+        <li><strong>并购重组线索</strong>：拟收购伽蓝特（华盛昌）、拟收购奎芯（和顺石油）等资本运作标的可跟踪</li>
+    </ol>
+
+    <h3><span class="emoji">⚠️</span> 风险警示</h3>
+    <ol>
+        <li><strong>高位股风险</strong>：昨日3板以上个股晋级率为0%，<span class="data-highlight">短期严禁追高断板股</span>，谨防次日核按钮</li>
+        <li><strong>题材退潮信号</strong>：AI、消费电子、半导体等科技线持续缩量，勿抄底</li>
+        <li><strong>情绪二次冰点可能</strong>：若明日主线内部出现大面积炸板或中军回落，需提防亏钱效应蔓延</li>
+        <li><strong>监管风险</strong>：近期连板股集中于央企/国企，虽安全性高，但易引发窗口指导</li>
+    </ol>
+
+    <div class="info-box">
+        <span class="emoji">🧭</span> <strong>总策略：顺势而为，拥抱主线，严控仓位，等待新周期确立信号（如出现5板以上空间龙）。</strong>
+    </div>
+
+    <hr class="divider">
+
+    <div class="footer">
+        <strong>master学堂纸上谈兵小能手</strong><br>
+        数据截止：2026年3月3日收盘
+    </div>
+
+</body>
+</html>

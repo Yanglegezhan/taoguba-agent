@@ -1,0 +1,171 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "NavigationReport",
+  "description": "决策导航报告数据结构",
+  "type": "object",
+  "required": ["date", "generation_time", "baseline_table", "signal_playbooks", "decision_tree", "market_summary", "key_recommendations"],
+  "properties": {
+    "date": {
+      "type": "string",
+      "description": "日期，格式：YYYY-MM-DD",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "generation_time": {
+      "type": "string",
+      "description": "生成时间，格式：YYYY-MM-DD HH:MM:SS"
+    },
+    "baseline_table": {
+      "type": "object",
+      "description": "及格线表（stock_code -> BaselineExpectation）",
+      "additionalProperties": {
+        "$ref": "#/definitions/BaselineExpectation"
+      }
+    },
+    "signal_playbooks": {
+      "type": "array",
+      "description": "信号剧本列表",
+      "items": {
+        "$ref": "#/definitions/SignalPlaybook"
+      }
+    },
+    "decision_tree": {
+      "$ref": "#/definitions/DecisionTree"
+    },
+    "market_summary": {
+      "type": "string",
+      "description": "市场概况"
+    },
+    "key_recommendations": {
+      "type": "array",
+      "description": "关键建议列表",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "definitions": {
+    "BaselineExpectation": {
+      "type": "object",
+      "required": ["stock_code", "stock_name", "expected_open_min", "expected_open_max", "expected_amount_min", "logic", "confidence"],
+      "properties": {
+        "stock_code": {
+          "type": "string",
+          "description": "股票代码"
+        },
+        "stock_name": {
+          "type": "string",
+          "description": "股票名称"
+        },
+        "expected_open_min": {
+          "type": "number",
+          "description": "预期开盘涨幅下限（%）"
+        },
+        "expected_open_max": {
+          "type": "number",
+          "description": "预期开盘涨幅上限（%）"
+        },
+        "expected_amount_min": {
+          "type": "number",
+          "description": "预期竞价金额下限（万元）",
+          "minimum": 0
+        },
+        "logic": {
+          "type": "string",
+          "description": "计算逻辑说明"
+        },
+        "confidence": {
+          "type": "number",
+          "description": "置信度（0-1）",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "SignalPlaybook": {
+      "type": "object",
+      "required": ["name", "trigger_conditions", "status_judgment", "strategy", "risk_level", "applicable_stocks"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "剧本名称"
+        },
+        "trigger_conditions": {
+          "type": "array",
+          "description": "触发条件列表",
+          "items": {
+            "type": "string"
+          }
+        },
+        "status_judgment": {
+          "type": "string",
+          "description": "地位判定"
+        },
+        "strategy": {
+          "type": "string",
+          "description": "应对策略"
+        },
+        "risk_level": {
+          "type": "string",
+          "description": "风险等级",
+          "enum": ["低风险", "中风险", "高风险", "极高风险"]
+        },
+        "applicable_stocks": {
+          "type": "array",
+          "description": "适用个股代码列表",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "DecisionTree": {
+      "type": "object",
+      "required": ["scenarios", "current_scenario"],
+      "properties": {
+        "scenarios": {
+          "type": "array",
+          "description": "所有场景列表",
+          "items": {
+            "$ref": "#/definitions/Scenario"
+          }
+        },
+        "current_scenario": {
+          "type": "string",
+          "description": "当前最可能的场景"
+        }
+      }
+    },
+    "Scenario": {
+      "type": "object",
+      "required": ["name", "trigger_condition", "market_sentiment", "strategy", "risk_warning", "confidence"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "场景名称"
+        },
+        "trigger_condition": {
+          "type": "string",
+          "description": "触发条件"
+        },
+        "market_sentiment": {
+          "type": "string",
+          "description": "盘感描述"
+        },
+        "strategy": {
+          "type": "string",
+          "description": "具体策略"
+        },
+        "risk_warning": {
+          "type": "string",
+          "description": "风险提示"
+        },
+        "confidence": {
+          "type": "number",
+          "description": "置信度（0-1）",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    }
+  }
+}

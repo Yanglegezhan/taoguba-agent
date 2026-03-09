@@ -1,0 +1,274 @@
+# 平台配置
+# 定义各个接单平台的URL、选择器和监控规则
+
+platforms:
+  # 程序员客栈 (国内)
+  proginn:
+    enabled: true
+    name: "程序员客栈"
+    url: "https://www.proginn.com/"
+    type: "domestic"
+
+    # 登录页面
+    login_url: "https://www.proginn.com/login"
+
+    # 项目列表页面
+    project_list_url: "https://www.proginn.com/task/"
+
+    # 项目详情页面模式
+    project_url_pattern: "https://www.proginn.com/task/{id}"
+
+    # 页面选择器
+    selectors:
+      # 项目列表
+      project_list: ".task-item, .project-item, .job-list li"
+      project_title: "h3, .title, .project-title"
+      project_budget: ".price, .budget, .amount"
+      project_description: ".desc, .description, .content"
+      project_tags: ".tags, .skill-tags"
+      project_time: ".time, .created-at"
+
+      # 分页
+      next_page: ".pagination .next, .pagination a:last-child"
+
+    # 关键词过滤
+    keywords:
+      include:
+        - "Python"
+        - "开发"
+        - "小程序"
+        - "网站"
+        - "API"
+        - "自动化"
+      exclude:
+        - "已结束"
+        - "已关闭"
+
+    # 预算范围 (元)
+    budget_range:
+      min: 500
+      max: 50000
+
+    # 轮询间隔 (秒)
+    poll_interval: 300
+
+    # 反爬策略
+    anti_crawl:
+      random_delay: true
+      min_delay: 3
+      max_delay: 8
+
+  # 码市 (国内)
+  codemart:
+    enabled: true
+    name: "码市"
+    url: "https://codemart.com/"
+    type: "domestic"
+
+    project_list_url: "https://codemart.com/project"
+    selectors:
+      project_list: ".project-card, .item-project"
+      project_title: ".title, h3"
+      project_budget: ".price, .budget"
+      project_description: ".desc, .description"
+
+    keywords:
+      include:
+        - "开发"
+        - "Python"
+        - "Web"
+      exclude:
+        - "已结束"
+
+    budget_range:
+      min: 1000
+      max: 50000
+
+    poll_interval: 300
+
+  # 猪八戒网 (国内)
+  zbj:
+    enabled: false  # 默认关闭，需要手动开启
+    name: "猪八戒网"
+    url: "https://www.zbj.com/"
+    type: "domestic"
+
+    project_list_url: "https://task.zbj.com/"
+    selectors:
+      project_list: ".task-item"
+      project_title: ".title"
+      project_budget: ".price"
+
+    keywords:
+      include:
+        - "软件开发"
+        - "网站开发"
+
+    budget_range:
+      min: 500
+      max: 10000
+
+    poll_interval: 600
+
+  # 闲鱼 (国内) - 卖服务模式
+  xianyu:
+    enabled: true
+    name: "闲鱼"
+    url: "https://2.taobao.com/"
+    type: "domestic"
+
+    # 搜索服务商品
+    search_url: "https://s.goofish.com/search?q=Python开发"
+    selectors:
+      product_list: ".item"
+      product_title: ".title"
+      product_price: ".price"
+
+    # 发布服务
+    publish_url: "https://2.taobao.com/publish/xianyu"
+
+    keywords:
+      include:
+        - "Python"
+        - "开发"
+        - "代写"
+        - "程序"
+
+    budget_range:
+      min: 10
+      max: 5000
+
+    poll_interval: 600
+
+  # Upwork (国际) - 需要代理
+  upwork:
+    enabled: false  # 默认关闭，需要代理才能稳定使用
+    name: "Upwork"
+    url: "https://www.upwork.com/"
+    type: "international"
+
+    project_list_url: "https://www.upwork.com/ab/jobs/search/"
+    selectors:
+      project_list: ".job-tile"
+      project_title: ".job-title"
+      project_budget: ".budget"
+      project_description: ".description"
+
+    keywords:
+      include:
+        - "Python"
+        - "Web Development"
+        - "API"
+        - "Automation"
+        - "Script"
+
+    budget_range:
+      min: 50  # 美元
+      max: 5000
+
+    poll_interval: 900
+    proxy_required: true
+
+  # Fiverr (国际)
+  fiverr:
+    enabled: false
+    name: "Fiverr"
+    url: "https://www.fiverr.com/"
+    type: "international"
+
+    # 搜索特定服务
+    search_url: "https://www.fiverr.com/search/gigs?query=python"
+    selectors:
+      gig_list: ".gig-card"
+      gig_title: ".gig-title"
+      gig_price: ".price"
+
+    poll_interval: 900
+    proxy_required: true
+
+# 智能体筛选配置
+agent_scorer:
+  # 项目评分阈值
+  score_threshold:
+    auto_forward: 85  # 自动推送给用户
+    consider: 70      # 考虑接单
+    reject: 70        # 拒绝
+
+  # 评分维度权重
+  scoring_weights:
+    budget_match: 0.25       # 预算匹配度
+    skill_match: 0.25        # 技能匹配度
+    project_clarity: 0.20    # 项目清晰度
+    competition: 0.15         # 竞争程度
+    timeline: 0.15           # 时间合理性
+
+  # 技能标签匹配
+  skills:
+    python:
+      keywords: ["Python", "python", "Django", "Flask", "爬虫"]
+      weight: 1.0
+    web:
+      keywords: ["Web", "网站", "前端", "后端", "React", "Vue"]
+      weight: 1.0
+    api:
+      keywords: ["API", "接口", "REST", "GraphQL"]
+      weight: 1.0
+    automation:
+      keywords: ["自动化", "Automation", "脚本"]
+      weight: 1.0
+
+# 竞标配置
+bidding:
+  # 竞标模板
+  templates:
+    short:
+      max_length: 100
+      content: "Hi, I can help with this project. Please check my profile for similar work."
+
+    standard:
+      max_length: 300
+      content: |
+        Hi,
+
+        I've reviewed your project requirements and I'm confident I can deliver this.
+
+        About me:
+        - {years} years of experience in {skills}
+        - Completed {projects} similar projects
+
+        I can start immediately and deliver within {timeline}.
+
+        Please check my portfolio: {portfolio_link}
+
+        Looking forward to working with you!
+
+    detailed:
+      max_length: 500
+      content: |
+        Hi,
+
+        Thank you for considering my proposal. I've carefully reviewed your requirements for {project_name}.
+
+        My understanding of the project:
+        {understanding}
+
+        Technical approach:
+        {approach}
+
+        Timeline:
+        {timeline}
+
+        Budget:
+        {budget_quote}
+
+        Portfolio:
+        {portfolio}
+
+        Best regards,
+        {name}
+
+  # 自动竞标规则
+  auto_bid:
+    enabled: false  # 强烈建议关闭
+    max_per_day: 3
+    min_score: 85

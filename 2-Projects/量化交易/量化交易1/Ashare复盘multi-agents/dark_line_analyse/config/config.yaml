@@ -1,0 +1,56 @@
+# -*- coding: utf-8 -*-
+# 涨停题材暗线!挖掘智能体配置文件
+
+# LLM配置
+llm:
+  provider: "zhipu"
+  api_key: "1113a27ec2af4aac878671c73d016450.wMjkqwXELDfe4hU8"
+  model_name: "glm-4.7-flash"
+  temperature: 0.7
+  max_tokens: null
+  timeout: null
+
+# 数据源配置
+data_source:
+  kaipanla:
+    timeout: 60
+    max_retries: 3
+  
+  # Tushare数据源（优先使用，需要2000积分以上）
+  # 获取Token: https://tushare.pro/
+  # 如果有有效的Tushare Token，将自动使用Tushare数据源
+  tushare:
+    api_token: ""  # 留空则不使用Tushare，将自动切换到AKShare
+    timeout: 3000000
+  
+  # AKShare数据源（备用，免费）
+  # 当Tushare不可用时自动使用
+  # 注意：已自动禁用代理，避免代理问题
+  akshare:
+    timeout: 300000
+
+# 分析参数配置
+analysis:
+  lift_ratio_threshold: 2.0
+  min_sample_size: 3
+  naming_similarity_threshold: 0.7
+  ma_periods: [5, 10, 20, 60]
+  lookback_days: 250
+  recent_limit_up_window: 20
+  pb_break_threshold: 1.0
+  price_ranges: [10, 30]
+  market_cap_ranges: [50, 100, 1000]
+
+# 输出配置
+output:
+  report_dir: "output/reports"
+  format: ["markdown", "json"]
+  include_stock_details: true
+
+# 日志配置
+logging:
+  level: "INFO"
+  file: "logs/dark_line_agent.log"
+  max_bytes: 10485760
+  backup_count: 5
+  console_output: true

@@ -1,0 +1,182 @@
+# Auto-Freelance Swarm 全局配置文件
+
+app:
+  name: "Auto-Freelance Swarm"
+  version: "0.1.0"
+  debug: false
+
+# LLM 配置
+llm:
+  # 默认使用的模型
+  default_provider: "openai"  # openai, anthropic, silicon
+  default_model: "gpt-4o"
+
+  # 各智能体专用模型配置
+  agents:
+    scout:
+      provider: "openai"
+      model: "gpt-4o-mini"
+      temperature: 0.3
+      max_tokens: 2000
+    analyst:
+      provider: "openai"
+      model: "gpt-4o"
+      temperature: 0.5
+      max_tokens: 4000
+    coder:
+      provider: "openai"
+      model: "gpt-4o"
+      temperature: 0.2
+      max_tokens: 8000
+    reviewer:
+      provider: "openai"
+      model: "gpt-4o"
+      temperature: 0.3
+      max_tokens: 4000
+    qa:
+      provider: "openai"
+      model: "gpt-4o"
+      temperature: 0.4
+      max_tokens: 4000
+
+  # 请求重试配置
+  retry:
+    max_attempts: 3
+    backoff_factor: 2
+    timeout: 60
+
+# 任务配置
+tasks:
+  # 最大并发任务_concurrent: 数
+  max3
+
+  # 任务检查间隔 (秒)
+  check_interval: 300
+
+  # 任务超时时间 (秒)
+  timeout: 3600
+
+  # 自动提交开关 (谨慎开启!)
+  auto_submit: false
+
+  # 自动提交最大次数/天
+  max_auto_submit_per_day: 3
+
+# 工作空间配置
+workspace:
+  # 工作空间根目录
+  root: "./workspace"
+
+  # 允许的文件操作路径
+  allowed_paths:
+    - "./workspace"
+
+  # 禁止的文件操作模式
+  forbid_patterns:
+    - "**/.env"
+    - "**/.git/**"
+    - "**/etc/**"
+    - "**/Windows/**"
+    - "**/AppData/**"
+
+# 浏览器配置
+browser:
+  # 是否使用无头模式
+  headless: true
+
+  # 隐身模式
+  stealth: true
+
+  # 请求超时时间
+  timeout: 30
+
+  # 页面加载等待时间
+  wait_after_load: 2
+
+  # 随机延迟范围 (秒)
+  random_delay:
+    min: 1
+    max: 4
+
+  # 代理配置 (可选)
+  proxy:
+    enabled: false
+    # type: "socks5"
+    # host: "127.0.0.1"
+    # port: 7890
+
+# 数据库配置
+database:
+  # 数据库类型: sqlite, postgresql
+  type: "sqlite"
+
+  # SQLite 配置
+  sqlite:
+    path: "./data/db.sqlite"
+
+  # PostgreSQL 配置 (生产环境使用)
+  postgresql:
+    host: "localhost"
+    port: 5432
+    database: "auto_freelance"
+    user: "postgres"
+    password: ""
+
+# 向量数据库配置
+vector_db:
+  # 类型: chroma, pinecone
+  type: "chroma"
+
+  # Chroma 配置
+  chroma:
+    persist_directory: "./data/vector_store"
+
+# 日志配置
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file:
+    enabled: true
+    path: "./data/logs/app.log"
+    max_bytes: 10485760  # 10MB
+    backup_count: 5
+  console:
+    enabled: true
+
+# 通知配置
+notifications:
+  enabled: false
+
+  telegram:
+    bot_token: ""
+    chat_id: ""
+
+  email:
+    smtp_server: "smtp.gmail.com"
+    smtp_port: 587
+    username: ""
+    password: ""
+    to: ""
+
+# 安全配置
+security:
+  # 是否启用代码执行沙箱
+  sandbox_enabled: true
+
+  # 沙箱类型: docker, restricted
+  sandbox_type: "restricted"
+
+  # 允许执行的命令
+  allowed_commands:
+    - "python"
+    - "pip"
+    - "git"
+    - "npm"
+    - "node"
+
+  # 禁止的命令
+  forbidden_commands:
+    - "rm -rf /"
+    - "del /f /s /q"
+    - "format"
+    - "mkfs"

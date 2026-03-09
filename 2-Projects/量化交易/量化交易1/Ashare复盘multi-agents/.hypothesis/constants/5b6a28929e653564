@@ -1,0 +1,4 @@
+# file: D:\pythonProject2\量化交易1\Ashare复盘multi-agents\sentiment_replay_agent\src\sentiment\llm_analyzer.py
+# hypothesis_version: 6.150.2
+
+['LLM分析失败：未知错误', 'LLM情绪分析完成', '```\\s*(.*?)\\s*```', 'confidence', 'current_stage', 'cycle_nodes', 'description', 'detail_analysis', 'divergence_analysis', 'key_indicators', 'money_making_score', 'next_node_prediction', 'node_type', 'position_advice', 'prompts/sentiment/', 'risk_warning', 'stage_position', 'strategy_suggestion', 'trading_date', 'user', '{', '}', '三线耦合', '中', '修复后分歧', '共振高潮', '冰冰点', '冰冰点次日修复', '冰点', '底背离', '开始LLM情绪分析...', '开始解析LLM响应...', '无法从响应中提取JSON', '退潮阶段', '顶背离']

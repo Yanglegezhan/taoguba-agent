@@ -1,0 +1,123 @@
+{
+  "timestamp": "2026-03-06 21:54:56",
+  "indexes": {
+    "sh": {
+      "name": "上证指数",
+      "code": "000001",
+      "change": 0.38,
+      "source": "eastmoney"
+    },
+    "sz": {
+      "name": "深证成指",
+      "code": "399001",
+      "change": 0.59,
+      "source": "eastmoney"
+    },
+    "cy": {
+      "name": "创业板指",
+      "code": "399006",
+      "change": 0.38,
+      "source": "eastmoney"
+    },
+    "kc": {
+      "name": "科创50",
+      "code": "000688",
+      "change": 0.64,
+      "source": "eastmoney"
+    }
+  },
+  "sectors": [
+    {
+      "name": "面板",
+      "change": 4.5,
+      "limit_up_count": 23,
+      "source": "kaipanla"
+    },
+    {
+      "name": "智能电网",
+      "change": 2.7,
+      "limit_up_count": 9,
+      "source": "kaipanla"
+    },
+    {
+      "name": "通信",
+      "change": 2.1,
+      "limit_up_count": 7,
+      "source": "kaipanla"
+    },
+    {
+      "name": "人工智能",
+      "change": 1.8,
+      "limit_up_count": 6,
+      "source": "kaipanla"
+    },
+    {
+      "name": "算力",
+      "change": 1.5,
+      "limit_up_count": 5,
+      "source": "kaipanla"
+    },
+    {
+      "name": "机器人",
+      "change": 1.2,
+      "limit_up_count": 4,
+      "source": "kaipanla"
+    },
+    {
+      "name": "储能",
+      "change": 1.0,
+      "limit_up_count": 3,
+      "source": "kaipanla"
+    },
+    {
+      "name": "ST板块",
+      "change": 0.8,
+      "limit_up_count": 3,
+      "source": "kaipanla"
+    },
+    {
+      "name": "医药",
+      "change": 0.6,
+      "limit_up_count": 2,
+      "source": "kaipanla"
+    },
+    {
+      "name": "汽车整车",
+      "change": 0.5,
+      "limit_up_count": 2,
+      "source": "kaipanla"
+    }
+  ],
+  "concepts": [
+    {
+      "name": "新型城镇化",
+      "change": 3.2,
+      "limit_up_count": 12,
+      "source": "kaipanla"
+    },
+    {
+      "name": "东数西算",
+      "change": 2.8,
+      "limit_up_count": 8,
+      "source": "kaipanla"
+    },
+    {
+      "name": "数据中心",
+      "change": 2.5,
+      "limit_up_count": 6,
+      "source": "kaipanla"
+    },
+    {
+      "name": "人工智能",
+      "change": 2.2,
+      "limit_up_count": 5,
+      "source": "kaipanla"
+    },
+    {
+      "name": "工业母机",
+      "change": 1.9,
+      "limit_up_count": 4,
+      "source": "kaipanla"
+    }
+  ]
+}

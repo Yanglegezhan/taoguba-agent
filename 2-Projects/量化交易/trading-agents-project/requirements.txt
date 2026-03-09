@@ -1,0 +1,31 @@
+# 核心依赖
+python-binance>=1.0.19
+python-dotenv>=1.0.0
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Agent框架
+openai>=1.0.0
+langchain>=0.1.0
+langchain-openai>=0.0.5
+
+# 向量数据库（RAG）
+chromadb>=0.4.0
+sentence-transformers>=2.2.0
+
+# TradingView截图
+playwright>=1.40.0
+Pillow>=10.0.0
+
+# 数据库
+sqlite3-python  # 标准库
+
+# 工具
+pyyaml>=6.0.1
+requests>=2.31.0
+schedule>=1.2.0
+loguru>=0.7.0
+
+# 开发
+pytest>=7.4.0
+pytest-asyncio>=0.21.0

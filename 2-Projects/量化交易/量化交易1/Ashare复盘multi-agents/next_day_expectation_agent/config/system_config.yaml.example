@@ -1,0 +1,58 @@
+# 系统配置文件示例
+# 复制此文件为 system_config.yaml 并填入实际配置
+
+# 数据存储配置
+data:
+  base_path: "./data"
+  stage1_output: "./data/stage1_output"
+  stage2_output: "./data/stage2_output"
+  stage3_output: "./data/stage3_output"
+  historical_db: "./data/historical/gene_pool_history.db"
+  logs_path: "./data/logs"
+
+# 日志配置
+logging:
+  level: "INFO"
+  format: "{time:YYYY-MM-DD HH:mm:ss} | {level} | {name}:{function}:{line} - {message}"
+  rotation: "100 MB"
+  retention: "30 days"
+  console_output: true
+  file_output: true
+
+# 时间配置
+timing:
+  stage1_run_time: "16：00"  # Stage1运行时间（收盘后）
+  stage2_run_time: "08:00"  # Stage2运行时间（早盘前）
+  
+  stage3_run_time: "09:25:01"  # Stage3结束时间（竞价结束）
+
+# 推送配置
+notification:
+  enabled: true
+  wechat:
+    webhook_url: ""
+  email:
+    smtp_server: ""
+    smtp_port: 587
+    username: ""
+    password: ""
+    from_addr: ""
+    to_addrs: []
+
+# 性能配置
+performance:
+  max_workers: 4
+  timeout: 30
+  retry_times: 3
+
+# LLM配置
+llm:
+  api_key: "AIzaSyDV_IPjJ8BP6vKhXvL_emJ1G9_LK0mDyY0"  # 请填入您的Gemini API密钥
+  model_name: "gemini-3-flash"
+  temperature: 0.7
+  max_tokens: null
+  top_p: 0.95
+  top_k: 40
+  timeout: none
+  max_retries: 3
+  enable_fallback: true  # 启用规则引擎降级

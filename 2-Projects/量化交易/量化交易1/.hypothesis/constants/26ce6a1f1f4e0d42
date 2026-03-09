@@ -1,0 +1,4 @@
+# file: D:\pythonProject2\量化交易1\Ashare复盘multi-agents\next_day_expectation_agent\src\stage1\technical_calculator.py
+# hypothesis_version: 6.150.2
+
+[0.0, 0.5, 0.95, 1.05, 100, 'distance_to_high_pct', 'distance_to_ma10_pct', 'distance_to_ma20_pct', 'distance_to_ma5_pct', 'ma10', 'ma20', 'ma5', '技术指标计算器初始化完成']
