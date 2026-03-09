@@ -344,6 +344,7 @@ async def fetch_blogger_content(
                     "post": {
                         "title": post_data['title'],
                         "url": post['url'],
+                        "content": post_data.get('content', ''),  # 主贴内容
                     },
                     "total_comments": len(time_filtered_comments),
                     "kept_comments": len(filter_result['kept']),
@@ -386,6 +387,10 @@ async def extract_with_llm(
 
         print(f"    提取 {blogger_name} 的干货...")
 
+        # 分别存储主贴和评论的提取结果
+        post_results = []
+        comment_results = []
+
         for post_data in posts:
             post = post_data['post']
             ganhuo = post_data['ganhuo']
@@ -393,32 +398,85 @@ async def extract_with_llm(
             # 获取保留的评论
             comments = ganhuo.get('kept', [])
 
-            if not comments:
-                continue
-
-            # 使用 LLM 提取
+            # 1. 提取主贴干货
             try:
-                result = extractor.extract_ganhuo(
-                    blogger_name=blogger_name,
-                    post_title=post['title'],
-                    comments=comments,
-                    time_range=time_range
-                )
-
-                blogger_reports[blogger_name] = result
-                print(f"      提取完成: {len(result['ganhuo_points'])}条干货, {len(result['yuan_points'])}条预案")
-
+                post_content = post.get('content', '')
+                if post_content and len(post_content.strip()) > 10:
+                    print(f"      提取主贴干货: {post['title'][:30]}...")
+                    post_result = extractor.extract_post_ganhuo(
+                        blogger_name=blogger_name,
+                        post_title=post['title'],
+                        post_content=post_content,
+                        time_range=time_range
+                    )
+                    if post_result['ganhuo_points'] or post_result['yuan_points']:
+                        post_results.append({
+                            'title': post['title'],
+                            'result': post_result
+                        })
             except Exception as e:
-                print(f"      LLM 提取失败: {e}")
-                blogger_reports[blogger_name] = {
-                    "ganhuo_points": [],
-                    "yuan_points": [],
-                    "summary": f"提取失败: {e}"
-                }
+                print(f"      主贴提取失败: {e}")
+
+            # 2. 提取评论干货
+            if comments:
+                try:
+                    comment_result = extractor.extract_ganhuo(
+                        blogger_name=blogger_name,
+                        post_title=post['title'],
+                        comments=comments,
+                        time_range=time_range
+                    )
+                    if comment_result['ganhuo_points'] or comment_result['yuan_points']:
+                        comment_results.append({
+                            'title': post['title'],
+                            'result': comment_result
+                        })
+                except Exception as e:
+                    print(f"      评论提取失败: {e}")
+
+        # 合并结果
+        if post_results or comment_results:
+            # 合并所有主贴干货
+            all_post_ganhuo = []
+            all_post_yuan = []
+            post_summaries = []
+            for pr in post_results:
+                all_post_ganhuo.extend(pr['result']['ganhuo_points'])
+                all_post_yuan.extend(pr['result']['yuan_points'])
+                if pr['result'].get('summary'):
+                    post_summaries.append(pr['result']['summary'])
+
+            # 合并所有评论干货
+            all_comment_ganhuo = []
+            all_comment_yuan = []
+            comment_summaries = []
+            for cr in comment_results:
+                all_comment_ganhuo.extend(cr['result']['ganhuo_points'])
+                all_comment_yuan.extend(cr['result']['yuan_points'])
+                if cr['result'].get('summary'):
+                    comment_summaries.append(cr['result']['summary'])
+
+            # 合并总结
+            final_summary = ""
+            if post_summaries or comment_summaries:
+                all_summaries = post_summaries + comment_summaries
+                if len(all_summaries) == 1:
+                    final_summary = all_summaries[0]
+                elif len(all_summaries) > 1:
+                    final_summary = extractor._merge_summaries(all_summaries, blogger_name)
+
+            blogger_reports[blogger_name] = {
+                "post_ganhuo_points": all_post_ganhuo,
+                "post_yuan_points": all_post_yuan,
+                "comment_ganhuo_points": all_comment_ganhuo,
+                "comment_yuan_points": all_comment_yuan,
+                "summary": final_summary
+            }
+            print(f"      提取完成: 主贴{len(all_post_ganhuo)}条干货/{len(all_post_yuan)}条预案, 评论{len(all_comment_ganhuo)}条干货/{len(all_comment_yuan)}条预案")
 
     # 整合所有博主报告
     if blogger_reports:
-        report_md = extractor.merge_blogger_reports(blogger_reports, time_range)
+        report_md = extractor.merge_blogger_reports_v2(blogger_reports, time_range)
         return report_md
     else:
         return "无内容"
