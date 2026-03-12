@@ -93,7 +93,7 @@ class TaoGuBaCrawler:
                     url = f"{post_url}-{page_num}"
 
                 print(f"      加载第 {page_num} 页...", end=" ")
-                await page.goto(url, wait_until='domcontentloaded', timeout=30000)
+                await page.goto(url, wait_until='domcontentloaded', timeout=60000)
                 await page.wait_for_timeout(2000)
 
                 # 获取页面内容
@@ -157,7 +157,7 @@ class TaoGuBaCrawler:
         finally:
             await page.close()
             await context.close()
-            await self._close_browser()
+            # 不在这里关闭浏览器，让调用者控制浏览器生命周期
 
     async def get_user_posts(self, uid: str, limit: int = 20,
                              start_time: datetime = None,
@@ -183,7 +183,7 @@ class TaoGuBaCrawler:
 
         try:
             url = f"{self.BASE_URL}/blog/{uid}"
-            await page.goto(url, wait_until='domcontentloaded', timeout=30000)
+            await page.goto(url, wait_until='domcontentloaded', timeout=60000)
             await page.wait_for_timeout(2000)
 
             html = await page.content()

@@ -36,7 +36,7 @@ class LLMExtractor:
         self.api_key = os.getenv("LLM_API_KEY", "")
         self.model = os.getenv("LLM_MODEL", "MiniMax-M2.5")
         self.base_url = PROVIDER_BASE_URLS.get(self.provider, "https://api.minimaxi.com/v1")
-        self.max_tokens = int(os.getenv("LLM_MAX_TOKENS", "190000"))  # 默认190000
+        self.max_tokens = int(os.getenv("LLM_MAX_TOKENS", "200000"))  # 默认200k
 
         # 创建 httpx 客户端（禁用 SSL 验证，无超时限制）
         self.http_client = httpx.Client(verify=False, timeout=None)

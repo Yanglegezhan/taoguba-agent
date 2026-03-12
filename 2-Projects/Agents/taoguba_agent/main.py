@@ -150,7 +150,7 @@ def filter_comments_by_time(
     strict_date: bool = False
 ) -> list[dict]:
     """
-    按时间范围筛选评论
+    按时间范围筛选评论（支持跨日期时间范围，如22:30-09:00）
 
     Args:
         comments: 评论列表，每项包含 'author' 字段（从中提取时间）
@@ -164,6 +164,11 @@ def filter_comments_by_time(
     """
     filtered = []
     base_date = base_date or datetime.now()
+
+    # 计算时间范围（分钟数）
+    start_hour_min = start_time.hour * 60 + start_time.minute
+    end_hour_min = end_time.hour * 60 + end_time.minute
+    is_cross_day = start_hour_min > end_hour_min  # 跨日期标志
 
     for comment in comments:
         # 从作者字段中提取时间
@@ -183,15 +188,21 @@ def filter_comments_by_time(
                 if comment_time.date() < start_time.date() or comment_time.date() > end_time.date():
                     continue
 
-            # 检查时间是否在范围内（按小时:分钟）
+            # 检查时间是否在范围内
             comment_hour_min = comment_time.hour * 60 + comment_time.minute
-            start_hour_min = start_time.hour * 60 + start_time.minute
-            end_hour_min = end_time.hour * 60 + end_time.minute
 
-            if start_hour_min <= comment_hour_min <= end_hour_min:
-                comment['parsed_time'] = comment_time
-                comment['time_str'] = time_str
-                filtered.append(comment)
+            if is_cross_day:
+                # 跨日期情况：时间在 [start, 24:00] 或 [00:00, end] 范围内
+                if comment_hour_min >= start_hour_min or comment_hour_min <= end_hour_min:
+                    comment['parsed_time'] = comment_time
+                    comment['time_str'] = time_str
+                    filtered.append(comment)
+            else:
+                # 同一天情况：时间在 [start, end] 范围内
+                if start_hour_min <= comment_hour_min <= end_hour_min:
+                    comment['parsed_time'] = comment_time
+                    comment['time_str'] = time_str
+                    filtered.append(comment)
         # 无法解析时间的评论，不保留
 
     return filtered
@@ -555,15 +566,14 @@ def generate_report(
                     lines.append(f"> {q}")
                 lines.append("")
 
-            # 各分类精选
-            for cat_name, comments in sorted(post_data['categories'].items())[:3]:
+            # 各分类完整内容（不限制数量）
+            for cat_name, comments in sorted(post_data['categories'].items()):
                 lines.append(f"**{cat_name}** ({len(comments)}条):")
-                for c in comments[:2]:  # 每类2条
+                for c in comments:  # 显示所有评论
                     author = c.get('author', '未知')
                     content = c.get('content', '')
                     time_str = c.get('time_str', '')
-                    if len(content) > 100:
-                        content = content[:100] + "..."
+                    # 不截断内容，显示完整内容
                     time_info = f" [{time_str}]" if time_str else ""
                     lines.append(f"• **{author}**{time_info}: {content}")
                 lines.append("")
